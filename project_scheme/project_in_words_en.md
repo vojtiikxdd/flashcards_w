@@ -2,13 +2,15 @@
 
 - project is devided into few parts/websites (?)
 
-whole website will be running on porkbun.com, link will propably look like this *flashcards.kraljeliman.lol*
+whole website will be running on porkbun.com, link will propably look like this *flashcards.kraljeliman.lol/*
 
 **Everything is in minimalist, clean style**
 
 ## **Color scheme**
 
 whole website will be defaultly set on dark mode
+
+Everything will have light/dark grey (depends on the theme) shade and on active color, proprably purple or turqoise or both. The active color will be used on buttons, outlines/borders, shadows, svg's etc., it can be used in shades
 
 ### dark mode
 
@@ -32,7 +34,9 @@ after singing in, user will be able to create a flashcards
 
 ## Log-in / register page
 
-classic classy clean 
+classic classy clean :)
+
+
 
 ## Forgot pswd
 
