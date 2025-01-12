@@ -12,9 +12,11 @@ Everything is in minimalist, clean style
 
 ## Homepage
 
-- header nav menu with icon at right and 
+- header nav menu with icon at left and about us, log-in(profile icon)
 
-- log-in / register popup when 
+when clicked on profile and then try to log in,  there will be 2 options, create account wiht your email and password or create with your google account
+
+after singing in, user will be able to create a flashcards
 
 ## Log-in / register page
 
