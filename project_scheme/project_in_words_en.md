@@ -24,7 +24,7 @@ Everything will have light/dark grey (depends on the theme) shade and on active 
 
 - background - pure white or very lite grey 
 
-## Homepage
+## Homapage
 
 - header nav menu with icon at left and about us, log-in(profile icon)
 
