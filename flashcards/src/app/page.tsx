@@ -1,11 +1,11 @@
-import Image from "next/image";
+"use client";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex">
-      <nav className="flex w-auto bg-[#120e1b]"> ahoj ne</nav>
+    <main className="flex min-h-screen flex-col bg-[#120e1b]">
       <div className="flex flex-col">
-        <a href="/abc">abc</a>
+        <Link href="/abc">abc</Link>
       </div>
     </main>
   );

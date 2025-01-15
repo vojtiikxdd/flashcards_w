@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import { User } from "lucide-react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: '800'
 });
 
 export const metadata: Metadata = {
@@ -25,8 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${robotoMono.className} antialiased`}
       >
+        <nav className="p-5 flex flex-row justufy-between bg-gradient-to-b from-[#110117] to-[#120e1b]">
+        <div className="flex">
+          <div className="w-10 h-10 text-3xl">x{/*<Image src={""} alt={""} />*/}</div>
+          <h1 className="font-[Poppins] text-5xl">FlashCards</h1>
+        </div>
+        <div className="ml-auto flex justify-center items-center">
+          <User size={30} href="/abc"/>
+        </div>
+      </nav>
         {children}
       </body>
     </html>

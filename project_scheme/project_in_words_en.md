@@ -2,6 +2,10 @@
 
 - project is devided into few parts/websites (?)
 
+    - about us
+    - profile (icon on mobile and hamb. menu)
+    - ?
+
 whole website will be running on porkbun.com, link will propably look like this *flashcards.kraljeliman.lol/*
 
 **Everything is in minimalist, clean style**
