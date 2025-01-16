@@ -26,18 +26,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoMono.className} min-h-screen flex flex-col antialiased`}>
-          <nav className="p-5 flex flex-row justufy-between bg-gradient-to-b from-[#110117] to-[#120e1b]">
+      <body className={`${robotoMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-gray-900`}>
+        <div className="absolute inset-0 bg-cyan-300 bg-[size:20px_20px] opacity-20 blur-[100px]"></div>
+          <nav className="p-5 flex flex-row justify-between">
             <Link href={"/"} className="flex">
-              <div className="w-10 h-10 text-3xl">x{/*<Image src={""} alt={""} />*/}</div>
-              <h1 className="font-[Poppins] text-5xl">FlashCards</h1>
+              <div className="w-10 h-10 text-2xl">x{/*<Image src={""} alt={""} />*/}</div>
+              <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
             </Link>
             <Link href="/abc" className="ml-auto flex justify-center items-center">
               <User size={30} />
             </Link>
           </nav>
           <div className="flex-1 flex flex-col">{children}</div>
+        
       </body>
     </html>
   );
 }
+
