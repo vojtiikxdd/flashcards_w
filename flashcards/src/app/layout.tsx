@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { User } from "lucide-react";
+import Link from "next/link";
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
@@ -25,19 +26,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${robotoMono.className} antialiased`}
-      >
-        <nav className="p-5 flex flex-row justufy-between bg-gradient-to-b from-[#110117] to-[#120e1b]">
-        <div className="flex">
-          <div className="w-10 h-10 text-3xl">x{/*<Image src={""} alt={""} />*/}</div>
-          <h1 className="font-[Poppins] text-5xl">FlashCards</h1>
-        </div>
-        <div className="ml-auto flex justify-center items-center">
-          <User size={30} href="/abc"/>
-        </div>
-      </nav>
-        {children}
+      <body className={`${robotoMono.className} min-h-screen flex flex-col antialiased`}>
+          <nav className="p-5 flex flex-row justufy-between bg-gradient-to-b from-[#110117] to-[#120e1b]">
+            <Link href={"/"} className="flex">
+              <div className="w-10 h-10 text-3xl">x{/*<Image src={""} alt={""} />*/}</div>
+              <h1 className="font-[Poppins] text-5xl">FlashCards</h1>
+            </Link>
+            <Link href="/abc" className="ml-auto flex justify-center items-center">
+              <User size={30} />
+            </Link>
+          </nav>
+          <div className="flex-1 flex flex-col">{children}</div>
       </body>
     </html>
   );
