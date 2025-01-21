@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { User } from "lucide-react";
+import { Copyright, User } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -27,19 +28,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-gray-900`}>
-        <div className="absolute inset-0 bg-[#14837d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>
-        <nav className="p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-[#0c0c0c81]">
-          <Link href={"/"} className="flex cursor-pointer">
-            <div className="w-10 h-10 text-2xl">x{/*<Image src={""} alt={""} />*/}</div>
+        <div className="pointer-events-none absolute inset-0 bg-[#14837d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>
+        <nav className={` ${poppins.className}
+        p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-[#0c0c0c81] font-bold`}>
+          <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl">
+            <Image src="/logo.png" alt="idk" width={75} height={350} />
             <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
           </Link>
           <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
             <User size={30} />
           </Link>
         </nav>
-        <div className="flex-1 flex flex-col">
-          {children}
-        </div>
+
+        {children}
+
+        <footer className=" bg-[#0c0c0cb7] justify-center flex flex-row items-center text-xl self-end w-full pb-20 pt-10 border-t-2 border-dashed">
+          <p>Bylo nás 5ět</p>  
+          <Copyright className="ml-2" />
+        </footer>
       </body>
     </html>
   );

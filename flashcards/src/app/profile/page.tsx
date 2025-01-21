@@ -14,11 +14,12 @@ export default function UserProfile() {
         </main>
       );
     }
-
-    return( 
-        <main className="flex min-h-screen flex-col">
-            <h1 className="text-red-500">Ahoj</h1>
-            <Link href="/">zpatky</Link>
-        </main>
-    );
+    else { 
+      return ( 
+          <main className="flex min-h-screen flex-col">
+              <h1 className="text-red-500">Ahoj</h1>
+              <Link href="/">zpatky</Link>
+          </main>
+      );
+  }
 }
