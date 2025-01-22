@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-gray-900`}>
-        <div className="pointer-events-none absolute inset-0 bg-[#14837d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>
+        <div className="pointer-events-none absolute inset-0 bg-[#25153d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>
         <nav className={` ${poppins.className}
         p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-[#0c0c0c81] font-bold`}>
           <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl">
@@ -40,7 +40,9 @@ export default function RootLayout({
           </Link>
         </nav>
 
-        {children}
+        <div className="flex-1">
+          {children}
+        </div>
 
         <footer className=" bg-[#0c0c0cb7] justify-center flex flex-row items-center text-xl self-end w-full pb-20 pt-10 border-t-2 border-dashed">
           <p>Bylo nás 5ět</p>  
