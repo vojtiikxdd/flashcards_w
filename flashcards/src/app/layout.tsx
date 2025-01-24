@@ -35,11 +35,13 @@ export default function RootLayout({
             <Image src="/logo.png" alt="idk" width={75} height={350} />
             <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
           </Link>
-          <div className="flex flex-row mx-auto bg-[#0c0c0c81] w-[30rem] rounded-2xl border-solid border-white border-4 pl-4">
-            {/*najit ikonu lupy a přidat ji */}
-            
-            <input type="text" className="bg-[#0c0c0c81] placeholder:italic" placeholder="Co máte na mysli?" />
-          </div>
+          <form action="" className="flex flex-row mx-auto bg-[#0c0c0c81] w-[30rem] rounded-2xl border-solid border-white border-4">
+            <p className="px-4 pt-1">
+              x
+              {/*najit ikonu lupy a přidat ji */}
+            </p>
+            <input type="text" id="searcInput" className="border-none focus:outline-none focus:ring-0 bg-[#0c0c0c81] placeholder:italic" placeholder="Co máte na mysli?" />
+          </form>
           <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
             <User size={30} />
           </Link>
@@ -50,7 +52,7 @@ export default function RootLayout({
         </div>
 
         <footer className=" bg-[#0c0c0cb7] justify-center flex flex-row items-center text-xl self-end w-full pb-20 pt-10 border-t-2 border-dashed">
-          <p>Bylo nás 5ět</p>  
+          <p>Bylo nás 5ět</p>
           <Copyright className="ml-2" />
         </footer>
       </body>
