@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist_Mono, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Copyright, User } from "lucide-react";
+import { Search } from "lucide-react";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -35,11 +37,10 @@ export default function RootLayout({
             <Image src="/logo.png" alt="idk" width={75} height={350} />
             <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
           </Link>
-          <form action="" className="flex flex-row mx-auto bg-[#0c0c0c81] w-[30rem] rounded-2xl border-solid border-white border-4">
-            <p className="px-4 pt-1">
-              x
-              {/*najit ikonu lupy a přidat ji */}
-            </p>
+          <form action="" className="flex flex-row mx-auto bg-[#0c0c0c81] w-[30rem] rounded-2xl border-solid border-white border-2">
+            <div className="px-2 flex justify-center items-center">
+              <Search size-20 />
+            </div>
             <input type="text" id="searcInput" className="border-none focus:outline-none focus:ring-0 bg-[#0c0c0c81] placeholder:italic" placeholder="Co máte na mysli?" />
           </form>
           <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
