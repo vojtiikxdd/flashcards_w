@@ -46,7 +46,7 @@ export default function RootLayout({
           <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
             <User size={30} />
           </Link>
-        </nav>
+        </nav>  
 
         <div className="flex-1">
           {children}
