@@ -36,25 +36,34 @@ export default function RootLayout({
             <Image src="/logo.png" alt="idk" width={75} height={350} />
             <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
           </Link>
-          <div className="flex flex-row justify-between w-[65%]">
+          <div className="flex flex-row justify-between w-[60%]">
             <form className="flex flex-row bg-[#0c0c0c81] rounded-2xl border-solid border-white border-2 items-center max-w-96">
               <label htmlFor="search">
-                <div className="flex flex-row gap-x-2 cursor-pointer"> 
+                <div className="flex flex-row gap-x-2 cursor-pointer">
                   <div className="px-2 flex items-center">
-                    <Search className="border-none border-transparent"/>
-                    <input id="search" type="text" placeholder="Search..." className="w-full rounded-lg p-2 focus:outline-none bg-transparent border-none cursor-pointer focus:cursor-text autofill:bg-[#140f1c] group-autofill:bg-[#140f1c]" autoComplete="off" />
+                    <Search className="border-none border-transparent" />
+                    <input id="search" type="text" placeholder="Search..." className="w-full rounded-lg p-[3px] focus:outline-none bg-transparent border-none cursor-pointer focus:cursor-text autofill:bg-[#140f1c] group-autofill:bg-[#140f1c] placeholder: text-[1.1rem]" autoComplete="off" />
                   </div>
                 </div>
               </label>
             </form>
-            <div className="flex flex-row gap-x-2">
-              <Link href="/home" className="font-light hover:font-medium my-auto">
-                other
-              </Link>
-              <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
-                <User size={30} />
-              </Link>
-            </div>
+            <ul className="flex flex-row gap-x-2 justify-center items-center">
+              <li>
+                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto">
+                  other
+                </Link>
+              </li>
+              <li>
+                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto">
+                  other
+                </Link>
+              </li>
+              <li>
+                <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
+                  <User size={40} />
+                </Link>
+              </li>
+            </ul>
           </div>
         </nav>
 
