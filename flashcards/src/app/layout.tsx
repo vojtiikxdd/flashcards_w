@@ -32,27 +32,32 @@ export default function RootLayout({
       <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-gray-900`}>
         <div className="pointer-events-none absolute inset-0 bg-[#25153d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>
         <nav className={` ${poppins.className}
-        p-5 flex flex-row justify-evenly border-b-2 border-dashed border-white bg-[#0c0c0c81] font-bold`}>
+        p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-[#0c0c0c81] font-bold`}>
           <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl">
             <Image src="/logo.png" alt="idk" width={75} height={350} />
             <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
           </Link>
           <form action="" className="flex flex-row mx-auto bg-[#0c0c0c81] w-[30rem] rounded-2xl border-solid border-white border-2">
             <div className="px-2 flex justify-center items-center">
-              <Search size-20 />
+              <Search size-20 className="py-4"/>
             </div>
-            <input type="text" id="searcInput" className="border-none focus:outline-none focus:ring-0 bg-[#0c0c0c81] placeholder:italic" placeholder="Co máte na mysli?" />
+            <input type="text" id="searcInput" className="border-none focus:outline-none focus:ring-0 bg-[#0c0c0c81]" placeholder="Co máte na mysli?" />
           </form>
-          <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
-            <User size={30} />
-          </Link>
+          <div className="flex flex-row gap-x-2">
+            <Link href="/home" className="font-light hover:font-medium my-auto">
+              other
+            </Link>
+            <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
+              <User size={30} />
+            </Link>
+          </div>
         </nav>
 
         <div className="flex-1">
           {children}
         </div>
 
-        <footer className=" bg-[#0c0c0cb7] justify-center flex flex-row items-center text-xl self-end w-full pb-20 pt-10 border-t-2 border-dashed">
+        <footer className=" bg-[#0c0c0cb7] justify-center flex flex-row items-center text-xl self-end w-full pb-12 pt-8 border-t-2 border-dashed">
           <p>Bylo nás 5ět</p>
           <Copyright className="ml-2" />
         </footer>
