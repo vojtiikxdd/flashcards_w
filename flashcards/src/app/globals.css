@@ -19,3 +19,26 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.testInput {
+  .input-autofill:-webkit-autofill,
+  .input-autofill:-webkit-autofill:hover,
+  .input-autofill:-webkit-autofill:focus,
+  .input-autofill:-webkit-autofill:active {
+    background-color: #6b0909 !important; /* Dark background */
+    color: white !important; /* Text color */
+    box-shadow: 0 0 0px 1000px #1a1a1a inset !important;
+  }
+
+  /* Change hover color for autocomplete suggestions */
+  .input-autofill:-webkit-autofill-selection,
+  .input-autofill:-webkit-autofill-selection:focus,
+  .input-autofill:-webkit-autofill-selection:hover {
+    background-color: #c42626 !important; /* Lighter dark gray */
+    color: white !important;
+  }
+}
+
+.labelMovement{
+  
+}

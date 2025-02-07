@@ -1,3 +1,5 @@
+import "@/app/globals.css"
+
 export default function Login() {
     return (
         <main>
@@ -6,11 +8,10 @@ export default function Login() {
                     <h1 className="text-4xl text-[#f1f1f1] text-center font-bold">Log-in! <span className="italic font-extralight">other</span></h1>
                     <div className="absolute right-3 bg-gray-500 w-[100px] h-[30px] rounded-3xl"></div>
                 </div>
-                <div className="flex flex-row relative items-center justify-between">
-                    <label htmlFor="FirstName" className="absolute">Jméno</label>
-                    <input type="text" id="FirstName" className="mx-auto rounded w-96 h-10 mt-[6%]" />
+                <div className="flex flex-row cursor-pointer relative items-center justify-between">
+                    <label htmlFor="FirstName" className="absolute labelMovement bottom-[0.35rem] left-[11rem] font-semibold text-xl">Jméno</label>
+                    <input type="text" id="FirstName" className="mx-auto p-2 text-xl font-semibold rounded-xl w-96 h-10 mt-[6%] focus:outline-none outline-[#222222]  border-2 border-solid border-[#d7d7d7] focus:border-[#7c46a3] ease-in-out duration-300 bg-[#101010] selection:bg-[#101010] cursor-pointer focus:cursor-text " />
                 </div>
-
             </form>
         </main>
     )

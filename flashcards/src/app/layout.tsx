@@ -40,9 +40,9 @@ export default function RootLayout({
             <form className="flex flex-row bg-[#0c0c0c81] rounded-2xl border-solid border-white border-2 items-center max-w-96">
               <label htmlFor="search">
                 <div className="flex flex-row gap-x-2 cursor-pointer">
-                  <div className="px-2 flex items-center">
+                  <div className="px-2 flex items-center cursor-pointer">
                     <Search className="border-none border-transparent" />
-                    <input id="search" type="text" placeholder="Search..." className="w-full rounded-lg p-[3px] focus:outline-none bg-transparent border-none cursor-pointer focus:cursor-text autofill:bg-[#140f1c] group-autofill:bg-[#140f1c] placeholder: text-[1.1rem]" autoComplete="off" />
+                    <input id="search" type="text" placeholder="Search..." className="focus:border-[#7c46a3] w-full rounded-lg p-[3px] focus:outline-none bg-transparent border-none cursor-pointer focus:cursor-text autofill:bg-[#140f1c] group-autofill:bg-[#140f1c] placeholder: text-[1.1rem] " autoComplete="off" />
                   </div>
                 </div>
               </label>
