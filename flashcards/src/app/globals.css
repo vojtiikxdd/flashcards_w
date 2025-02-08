@@ -32,8 +32,8 @@ input:-webkit-autofill:active{
 
 
 .labelMovement{
-  #NicknameInput:focus + #loginLabel,
-  #NicknameInput.valid + #loginLabel {
-    top: -15px;
+  #nicknameInput:focus + #loginLabel,
+  #nicknameInput.valid + #loginLabel {
+    top: 27px;
 }
 }
