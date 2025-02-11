@@ -33,7 +33,7 @@ export default function Login() {
     }
   }
 
-  const [register, setRegister] = useState(true);
+  const [register, setRegister] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
