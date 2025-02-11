@@ -5,7 +5,7 @@ import { supabase } from "../supabase";
 import bcrypt from "bcryptjs";
 
 //funkce pro pohybu labelu nad inputem
-export const useFloatingLabel = () => {
+const useFloatingLabel = () => {
   const [value, setValue] = useState("");
   const [isTopped, setIsTopped] = useState(false);
 
