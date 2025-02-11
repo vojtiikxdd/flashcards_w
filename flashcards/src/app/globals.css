@@ -29,12 +29,3 @@ input:-webkit-autofill:active{
     transition: background-color 200s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px rgba(20, 20, 20, 0.161);
 }
-
-
-.labelMovement .LogFormInput:focus .LogFormLabel {
-  top: 27px;
-}
-
-.labelMovement .LogFormInput.valid .LogFormLabel {
-  top: 27px;
-}

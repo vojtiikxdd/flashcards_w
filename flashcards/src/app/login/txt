@@ -1,0 +1,15 @@
+{/*onClick={() => {
+                const logFormInput = document.getElementById('LogFormInput') as HTMLInputElement | null;
+                if (logFormInput) {
+                  logFormInput.oninput = (a) => {
+                    const target = a.target as HTMLInputElement;
+                    if (target && target.value !== '') {
+                      if (a.target) {
+                        (a.target as HTMLInputElement).classList.add('valid');
+                      }
+                    } else if (a.target && (a.target as HTMLInputElement).value === '') {
+                      (a.target as HTMLInputElement).classList.remove('valid');
+                    }
+                  };
+                }
+              }}*/}
