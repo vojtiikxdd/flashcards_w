@@ -29,30 +29,49 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-gray-900`}>
-        <div className="pointer-events-none absolute inset-0 bg-[#25153d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>
-        <nav className={` ${poppins.className}
-        p-5 flex flex-row justify-evenly border-b-2 border-dashed border-white bg-[#0c0c0c81] font-bold`}>
+      <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-[#211b3d]`}>
+        {/*<div className="pointer-events-none absolute inset-0 bg-[#25153d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>*/}
+        <nav className={` ${poppins.className} p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-gradient-to-b from-[#130f1a] to-[#1a1327] font-bold`}>
           <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl">
             <Image src="/logo.png" alt="idk" width={75} height={350} />
             <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
           </Link>
-          <form action="" className="flex flex-row mx-auto bg-[#0c0c0c81] w-[30rem] rounded-2xl border-solid border-white border-2">
-            <div className="px-2 flex justify-center items-center">
-              <Search size-20 />
-            </div>
-            <input type="text" id="searcInput" className="border-none focus:outline-none focus:ring-0 bg-[#0c0c0c81] placeholder:italic" placeholder="Co máte na mysli?" />
-          </form>
-          <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
-            <User size={30} />
-          </Link>
+          <div className="flex flex-row justify-between w-[60%]">
+            <form className="flex flex-row bg-[#0c0c0c81] rounded-2xl border-solid border-white border-2 items-center max-w-96">
+              <label htmlFor="search">
+                <div className="flex flex-row gap-x-2 cursor-pointer">
+                  <div className="px-2 flex items-center cursor-pointer">
+                    <Search className="border-none border-transparent" />
+                    <input id="search" type="text" placeholder="Search..." className="focus:border-[#7c46a3] w-full rounded-lg p-[3px] focus:outline-none bg-transparent border-none cursor-pointer focus:cursor-text autofill:bg-[#140f1c] group-autofill:bg-[#140f1c] placeholder: text-[1.1rem] " autoComplete="off" />
+                  </div>
+                </div>
+              </label>
+            </form>
+            <ul className="flex flex-row gap-x-2 justify-center items-center">
+              <li>
+                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto">
+                  other
+                </Link>
+              </li>
+              <li>
+                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto">
+                  other
+                </Link>
+              </li>
+              <li>
+                <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
+                  <User size={40} />
+                </Link>
+              </li>
+            </ul>
+          </div>
         </nav>  
 
         <div className="flex-1">
           {children}
         </div>
 
-        <footer className=" bg-[#0c0c0cb7] justify-center flex flex-row items-center text-xl self-end w-full pb-20 pt-10 border-t-2 border-dashed">
+        <footer className="bg-gradient-to-b from-[#181225] to-[#14111e] justify-center flex flex-row items-center text-xl self-end w-full pb-12 pt-8 border-t-2 border-dashed">
           <p>Bylo nás 5ět</p>
           <Copyright className="ml-2" />
         </footer>
