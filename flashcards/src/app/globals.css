@@ -35,5 +35,5 @@ input:-webkit-autofill:active{
   #nicknameInput:focus + #loginLabel,
   #nicknameInput.valid + #loginLabel {
     top: 27px;
-}
+  }
 }

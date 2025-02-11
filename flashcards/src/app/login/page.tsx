@@ -34,6 +34,8 @@ export default function Login() {
   }
 
   const [register, setRegister] = useState(true);
+  const [inputValue, setInputValue] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <main className="absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#141414] border-dashed rounded-3xl w-[45rem] h-[25rem] bg-[#1f1f1f3d]">
@@ -57,11 +59,18 @@ export default function Login() {
       <form onSubmit={handleSubmit} className="flex flex-col ">
         {register ? (
           <div className="flex flex-row justify-center items-center">
-            <label htmlFor="nicknameInput" className="absolute text-xl font-semibold text-[#f1f1f1]">Nickname</label>
+            <label htmlFor="nicknameInput" className={'absolute text-xl font-semibold text-[#f1f1f1] ease-in-out duration-300 bottom-[265px]' + (isFocused ? 'top-[-1.5rem] text-[#7c46a3]' : 'top-[2.5rem]')}
+            >
+              Nickname</label>
             <input
               type="text" id="nicknameInput" placeholder="nickname"
               value={nickname}
-              onChange={(e) => setNickname(e.target.value)}
+              onChange={(e) => {
+                setNickname(e.target.value);
+                setInputValue(e.target.value);
+              }}
+              onClick={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(inputValue !== "")}
               className="items-center labelMovement mx-auto p-2 text-xl font-semibold rounded-xl w-96 h-10 mt-[6%] focus:outline-none outline-[#222222]  border-2 border-solid border-[#d7d7d7] focus:border-[#7c46a3] ease-in-out duration-300 bg-[transparent] selection:bg-[#101010] cursor-pointer focus:cursor-text hover:border-[#a255f0]" />
           </div>
         ) : null}
@@ -84,7 +93,7 @@ export default function Login() {
             id="submitButton" type="submit"
             onClick={() => success ? window.location.href = "/" : null}
             className="self-center w-96 h-10 text-xl font-semibold text-white border-2 border-solid border-[#7246d8] rounded-xl mt-[3%] bg-[#8257e7] hover:bg-violet-500 focus:bg-violet-600 ease-in-out duration-200">
-            Send  
+            Send
           </button>
         </div>
       </form>
