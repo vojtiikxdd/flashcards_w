@@ -34,6 +34,12 @@ input:-webkit-autofill:active{
   content: "ahoj lasko";
   width: 40px;
   height: 40px;
+  position: absolute;
   background: #171717;
   color: #ffffff;
+  display: none;
+}
+
+.infoBox:hover::after {
+  display: flex;
 }

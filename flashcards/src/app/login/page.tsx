@@ -46,10 +46,11 @@ export default function Login() {
                             onClick={() => setRegister(true)}>register</a>
                     ) : (
                         <a className="hover:text-[#b670e8] focus:text-[#b670e8] active:text-[#552b66] select-none cursor-pointer transition-colors ease-in-out duration-200"
-                            onClick={() => setRegister(true)}> register </a>)}
+                            onClick={() => setRegister(true)}> register </a>
+                    )}
 
                     <span className="mx-2 font-extrabold">/</span>
-
+                    
                     {!register ? (
                         <a className="text-[#c995ee] hover:text-[#b670e8] focus:text-[#b670e8] active:text-[#552b66] select-none cursor-pointer transition-colors ease-in-out duration-200"
                             onClick={() => setRegister(false)}>login</a>
