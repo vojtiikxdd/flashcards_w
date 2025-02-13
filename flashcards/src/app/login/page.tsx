@@ -3,20 +3,23 @@
 import React, { useState } from "react";
 import { supabase } from "../supabase";
 import bcrypt from "bcryptjs";
+import { Input } from "@/components/input";
 
 //funkce pro pohybu labelu nad inputem
-const useFloatingLabel = () => {
-  const [value, setValue] = useState("");
-  const [isTopped, setIsTopped] = useState(false);
+const useFloatingLabel = (initialValue = "") => {
+  const [value, setValue] = useState(initialValue);
+  const [isTopped, setIsTopped] = useState(value !== ""); // Ensure correct label position on load
 
   const handleFocus = () => setIsTopped(true);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    setIsTopped(e.target.value !== ""); // Ponechá label nahoře, pokud je input vyplněný
+    setIsTopped(e.target.value !== ""); // Keeps label on top if there's text
   };
 
-  {/*Issue: Pokud se input vyplní, ale pak se smaže, label se vrátí dolů, ikdyž je input aktivní*/}
-  const handleBlur = () => setIsTopped(value !== ""); // Pokud je input prázdný, label se vrátí dolů
+  const handleBlur = () => {
+    setIsTopped(value !== ""); // Moves label back down if empty
+  };
 
   return { value, isTopped, handleFocus, handleChange, handleBlur };
 };
@@ -48,9 +51,10 @@ export default function Login() {
     }
   }
 
-  const [register, setRegister] = useState(true);
+  const [register, setRegister] = useState(false);
 
   // Vytvoření proměnných pro jednotlivé labely
+  // bylo nutno použít jiné názvy, protože jsou tyto  názvy již použity pro zápis do databáze
   const nickVal = useFloatingLabel();
   const emailVal = useFloatingLabel();
   const pswdVal = useFloatingLabel();
@@ -82,45 +86,21 @@ export default function Login() {
         </div>
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col ">
-        {register ? (
-          <div className="relative flex flex-row justify-center items-center">
-            <label htmlFor="LogFormInput" id="LogFormLabel"
-              className={`absolute text-xl font-semibold text-[#cccccc] ease-in-out duration-200 bottom-[265px] left-[178px] bg-[#201c35] cursor-pointer select-none w-[104px] h-6 flex items-center justify-center  ${nickVal.isTopped ? "top-[28px] text-lg left-[182px]" : "top-[50px]"}`} >nickname</label>
-            <input
-              type="text" id="LogFormInput"
-              value={nickVal.value}
-              onChange={(e) => {
-                setNickname(e.target.value);
-                nickVal.handleChange(e);}
-              }
-              onFocus={nickVal.handleFocus}
-              onBlur={nickVal.handleBlur}
-
-              className="items-center mx-auto p-2 text-xl font-semibold rounded-xl w-96 h-10 mt-[6%] focus:outline-none outline-[#222222]  border-2 border-solid border-[#d7d7d7] focus:border-[#7c46a3] ease-in-out duration-300 bg-[transparent] selection:bg-[#101010] cursor-pointer focus:cursor-text hover:border-[#a255f0]" />
-          </div>
-        ) : null}
-
-        <input
-          type="email" id="emailInput" placeholder="email"
-          value={email} onChange={(e) => setEmail(e.target.value)}
-          className="flex flex-row relative items-center justify-between labelMovement mx-auto p-2 text-xl font-semibold rounded-xl w-96 h-10 mt-[2%] focus:outline-none outline-[#222222]  border-2 border-solid border-[#d7d7d7] focus:border-[#7c46a3] ease-in-out duration-300 bg-[transparent] selection:bg-[#101010] cursor-pointer focus:cursor-text hover:border-[#a255f0]" />
-        <input
-          type="password" id="passwordInput" placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-
-          className="flex flex-row relative items-center justify-between labelMovement mx-auto p-2 text-xl font-semibold rounded-xl w-96 h-10 mt-[2%] focus:outline-none outline-[#222222]  border-2 border-solid border-[#d7d7d7] focus:border-[#7c46a3] ease-in-out duration-300 bg-[transparent] selection:bg-[#101010] cursor-pointer focus:cursor-text hover:border-[#a255f0]" /> 
-
-        {register ? (
-          <input
-            type="password" id="passwordInput" placeholder="password again"
-            className="flex flex-row relative items-center justify-between labelMovement mx-auto p-2 text-xl font-semibold rounded-xl w-96 h-10 mt-[2%] focus:outline-none outline-[#222222]  border-2 border-solid border-[#d7d7d7] focus:border-[#7c46a3] ease-in-out duration-300 bg-[transparent] selection:bg-[#101010] cursor-pointer focus:cursor-text hover:border-[#a255f0]" />
-        ) : null}
+        <div className="mt-1">
+          {register && (
+            <Input label="nickname" onValueChange={setNickname} name="nickname" id="nickInput" />
+          )}
+        </div>
+        <Input type="email" label="email" onValueChange={setEmail} name="email" id="emailInput" />
+        <Input type="password" label="password" onValueChange={setPassword} name="password" id="pswdInput" />
+        {register && (
+          <Input type="password" label="confirm" name="confirmPassword" id="comfirmPswdInput" />
+        )}
 
         <div className="mx-auto flex flex-row cursor-pointer relative items-center justify-between labelMovement">
           <button
             id="submitButton" type="submit"
-            onClick={() => success ? window.location.href = "/" : null}
+            onClick={() => success && window.location.href == "/"}
             className="self-center w-96 h-10 text-xl font-semibold text-white border-2 border-solid border-[#7246d8] rounded-xl mt-[3%] bg-[#8257e7] hover:bg-violet-500 focus:bg-violet-600 ease-in-out duration-200">
             Send
           </button>
