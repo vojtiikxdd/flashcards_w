@@ -2,14 +2,9 @@ import Link from "next/link";
 
 export default function Home() {
 
-    const session = false; 
-    /*
-        this will be replaced with the actual session state from cookies
-        will be after database will 100% work, prop this week (til 21.2)
-    */
+    const session = false;
+    const Name = "";
     
-    const Name = "Adolf";
-    const FirstLetter = Name.charAt(0);
 
     return (
         <main className="flex flex-1 flex-col">
