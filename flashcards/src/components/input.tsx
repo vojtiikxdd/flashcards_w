@@ -18,8 +18,8 @@ export function Input({ label, onValueChange, ...props }: InputProps) {
     return (
         <div className="relative flex flex-row justify-center items-center">
             {props.name === "password" && (
-                <div className="absolute left-[135px] top-[24px] cursor-pointer hover:infoMessage">
-                    <Info />
+                <div className="absolute left-[135px] top-[24px] cursor-pointer infoBox">
+                    <Info className="infoBox"/>
                 </div>
             )}
             

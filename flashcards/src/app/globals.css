@@ -40,6 +40,7 @@ input:-webkit-autofill:active{
   display: none;
 }
 
-.infoBox:hover::after {
+.infoBox:hover +
+.infoBox::after {
   display: flex;
 }

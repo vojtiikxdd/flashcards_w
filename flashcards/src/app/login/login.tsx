@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Input } from "@/components/input";
 import { login, signup } from "@/utils/supabase/actions";
+import { CircleX } from "lucide-react";
 
 export default function Login() {
     const [nickname, setNickname] = useState('');
@@ -24,7 +25,7 @@ export default function Login() {
     }
 
     return (
-        <main className="absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#141414] border-dashed rounded-3xl w-[45rem] h-[25rem] bg-[#1f1f1f3d]">
+        <main className={`absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#141414] border-dashed rounded-3xl w-[45rem] h-[25rem] bg-[#1f1f1f3d] ${(register && error) ? "h-[27rem]" : "h-[25rem]"}`}>
             <div className="flex flex-row justify-center items-center mt-[2%]">
                 <h1 className="text-4xl text-[#f1f1f1] text-center font-bold">
                     {register ? "Register!" : "Login!"}
@@ -46,7 +47,8 @@ export default function Login() {
                 </div>
             </div>
             {error && (
-                <div className="mx-auto text-center px-2 py-3 w-[350px] mt-4 mb-5 bg-[#aa000058]  text-white border-2 border-solid border-red-600 rounded-lg">
+                <div className={`flex mx-auto text-center  px-2 py-3 w-[350px] mt-4 bg-[#aa000058]  text-white border-2 border-solid border-red-600 rounded-lg items-center justify-start h-[3rem]`}>
+                    <CircleX size={30} className="py-1 absolute left-[205px] top-[80px]" color="#fb2626"/>
                     {error} 
                 </div>
             )}
