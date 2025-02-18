@@ -30,7 +30,6 @@ export default function Login() {
                     {register ? "Register!" : "Login!"}
                 </h1>
                 <div className="absolute right-8 flex flex-row justify-center items-center ml-[2%] ">
-                    {error}
                     {register ? (
                         <a className="text-[#c995ee] hover:text-[#b670e8] focus:text-[#b670e8] active:text-[#552b66] select-none cursor-pointer transition-colors ease-in-out duration-200" onClick={() => setRegister(true)}>register</a>
                     ) : (
@@ -46,6 +45,11 @@ export default function Login() {
                     )}
                 </div>
             </div>
+            {error && (
+                <div className="mx-auto text-center px-2 py-3 w-[350px] mt-4 mb-5 bg-[#aa000058]  text-white border-2 border-solid border-red-600 rounded-lg">
+                    {error} 
+                </div>
+            )}
             <form onSubmit={handleSubmit} className="flex flex-col ">
                 <div className="mt-1">
                     {register && (
