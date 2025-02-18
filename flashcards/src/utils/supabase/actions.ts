@@ -70,3 +70,12 @@ export async function getUser(): Promise<User | string> {
 
   return { email: res.data.user.email, ...singleRes.data };
 }
+
+export async function signOut(): Promise<void> {
+  const supabase = await createClient();
+
+  await supabase.auth.signOut();
+
+  revalidatePath('/', 'layout')
+  redirect('/');
+}
