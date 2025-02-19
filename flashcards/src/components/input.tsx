@@ -18,13 +18,13 @@ export function Input({ label, onValueChange, ...props }: InputProps) {
     return (
         <div className="relative flex flex-row justify-center items-center">
             {props.name === "password" && (
-                <div className="absolute left-[135px] top-[24px] cursor-pointer infoBox">
-                    <Info className="infoBox"/>
+                <div className="absolute z-50 left-[135px] top-[24px] cursor-pointer infoBox">
+                    <Info />
                 </div>
             )}
             
             <label htmlFor={props.id}
-            className={`absolute text-xl font-semibold text-[#cccccc] ease-in-out duration-200 bottom-[265px] left-[178px] bg-[#201c35] cursor-pointer select-none  h-6 flex items-center justify-center rounded-xl ${isTopped ? "top-[2px] text-lg left-[182px] px-2" : "top-[24px]"}`} >{label}</label>
+            className={`absolute text-xl font-semibold text-[#cccccc] ease-in-out duration-200 bottom-[265px] left-[178px] bg-[#201c35] cursor-pointer select-none  h-6 flex items-center justify-center rounded-xl ${isTopped ? "top-[2px] text-base left-[176px] px-2" : "top-[24px]"}`} >{label}</label>
             <input
                 onChange={(e) => {
                     {(e.target.value.length > 0 || (e.target.value.length === 0 && isFocused)) ? setIsTopped(true) : setIsTopped(false)}
