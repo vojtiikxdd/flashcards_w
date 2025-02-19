@@ -1,16 +1,10 @@
 "use client"
 
-import { useEffect } from 'react';
 import { User } from "@/utils/schemas";
 import Link from 'next/link';
-import { signOut, getUser } from '@/utils/supabase/actions';
+import { signOut } from '@/utils/supabase/actions';
 
-import { useRouter } from 'next/navigation';
-import { get } from 'http';
-
-
-
-export default function UserProfile({ user }: { user: User }) {    
+export default function UserProfile({ user }: { user: User }) {
     return (
         <main>
             <div className="flex absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#ffffff60] border-dashed rounded-3xl w-[55rem] h-[30rem] bg-[#1f1f1f3d]">
