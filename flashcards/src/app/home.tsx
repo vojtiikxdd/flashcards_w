@@ -7,6 +7,16 @@ import { FlashcardsBox } from "@/components/flashcardsBox";
 
 export default function Home({ user }: { user: User | string }) {
     const session = typeof user === 'object';
+    
+    const count = 5; //will be replaced with actual count of recently used flashcards
+
+    /*
+    const FlashcardBoxCount = () => {
+        for (count as number) {
+            return (
+                <FlashcardsBox />
+            );
+    }*/
 
     if (typeof user === 'object') console.log(user.nickname);
 
@@ -15,9 +25,9 @@ export default function Home({ user }: { user: User | string }) {
             {session ? (
                 <div className="flex flex-col w-full m-auto justify-center items-center">
                     <p className="text-[#fff] text-4xl font-medium relative my-20">
-                        Welcome back, {user.nickname} <span className="italic">name</span> <span className="bg-clip-text from-[#5e25da] to-[#da25d4] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">{user.nickname}</span>! <br />Wanna study sum?
+                        Welcome back, {user.nickname} <span className="italic text-red-400">name</span><span className="bg-clip-text from-[#5e25da] to-[#da25d4] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">{user.nickname}</span>! <br />Wanna study sum?
                     </p>
-                    <div className="self-start ml-8">
+                    <div className="self-start justify-between ml-8">
                         <p className="font-bold text-xl mb-4">Recent flashcards</p>
                         <div className="flex flex-row flex-wrap ml-4">
                             <FlashcardsBox />
