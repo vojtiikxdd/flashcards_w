@@ -34,7 +34,7 @@ export default function RootLayout({
         <nav className={` ${poppins.className} p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-gradient-to-b from-[#130f1a] to-[#1a1327] font-bold`}>
           <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl">
             <Image src="/logo.png" alt="idk" width={75} height={350} />
-            <h1 className="font-[Poppins] text-4xl">FlashCards</h1>
+            <h1 className="font-[Poppins] text-4xl text-white">FlashCards</h1>
           </Link>
           <div className="flex flex-row justify-between w-[60%]">
             <form className="flex flex-row bg-[#0c0c0c81] rounded-2xl border-solid border-white border-2 items-center max-w-96">
@@ -49,18 +49,18 @@ export default function RootLayout({
             </form>
             <ul className="flex flex-row gap-x-2 justify-center items-center">
               <li>
-                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto">
+                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto text-white">
                   other
                 </Link>
               </li>
               <li>
-                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto">
+                <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto text-white">
                   other
                 </Link>
               </li>
               <li>
                 <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
-                  <User size={40} />
+                  <User size={40} color="white" />
                 </Link>
               </li>
             </ul>
@@ -72,8 +72,8 @@ export default function RootLayout({
         </div>
 
         <footer className="bg-gradient-to-b from-[#181225] to-[#14111e] justify-center flex flex-row items-center text-xl self-end w-full pb-12 pt-8 border-t-2 border-dashed">
-          <p>Bylo nás 5ět</p>
-          <Copyright className="ml-2" />
+          <p className="text-white">Bylo nás 5ět</p>
+          <Copyright className="ml-2" color="white" />
         </footer>
       </body>
     </html>

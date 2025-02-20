@@ -28,7 +28,7 @@ export default function Home({ user }: { user: User | string }) {
                         Welcome back, {user.nickname} <span className="italic text-red-400">name</span><span className="bg-clip-text from-[#5e25da] to-[#da25d4] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">{user.nickname}</span>! <br />Wanna study sum?
                     </p>
                     <div className="self-start justify-between ml-8">
-                        <p className="font-bold text-xl mb-4">Recent flashcards</p>
+                        <p className="font-bold text-xl mb-4 text-white RecentFlshcrdBoxLabel">Recent flashcards</p>
                         <div className="flex flex-row flex-wrap ml-4">
                             <FlashcardsBox />
                         </div>
