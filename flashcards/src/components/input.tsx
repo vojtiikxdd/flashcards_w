@@ -19,6 +19,7 @@ export function Input({ label, onValueChange, ...props }: InputProps) {
 
     return (
         <div className="relative flex flex-row justify-center items-center">
+            {/* this is base to replace the search input*/}
             {props.name === "password" && (
                 <div className="absolute z-50 left-[135px] top-[24px] cursor-pointer infoBox">
                     <Info />
