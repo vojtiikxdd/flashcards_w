@@ -4,10 +4,12 @@ import { useState } from "react";
 import { Eye } from "lucide-react";
 import { EyeOff } from "lucide-react";
 import { Info } from "lucide-react";
+import { Search } from "lucide-react";
 
 type InputProps = {
     label: string;
     onValueChange?: (value: string) => void;
+    isSearch: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export function Input({ label, onValueChange, ...props }: InputProps) {
@@ -20,6 +22,12 @@ export function Input({ label, onValueChange, ...props }: InputProps) {
             {props.name === "password" && (
                 <div className="absolute z-50 left-[135px] top-[24px] cursor-pointer infoBox">
                     <Info />
+                </div>
+            )}
+
+            {props.isSearch === true && (
+                <div >
+                    <Search className="border-none border-transparent" />
                 </div>
             )}
             
