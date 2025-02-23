@@ -55,7 +55,7 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="flex flex-col ">
                 <div className="mt-1">
                     {register && (
-                        <Input label="nickname" isSearch={false} onValueChange={setNickname} name="nickname" id="nickInput" />
+                        <Input label="nickname" isSearch={false} onValueChange={setNickname} name="nickname" id="nickInput" type="text" />
                     )}
                 </div>
                 <Input type="email" label="email" isSearch={false} onValueChange={setEmail} name="email" id="emailInput" />

@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -49,4 +37,28 @@ input:-webkit-autofill:active{
 .infoBox:hover::after {
   display: flex !important;
   opacity: 1;
+}
+
+.RecentFlshcrdBoxLabel::before {
+  content: '';
+  display: flex !important;
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  left: 6px;
+  top: 334px;
+  padding: 2px;
+  background: linear-gradient(90deg, #211b3d 0%, #fff 100%);
+}
+
+.RecentFlshcrdBoxLabel::after {
+  content: '';
+  display: flex !important;
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  left: 241px;
+  top: 334px;
+  padding: 2px;
+  background: linear-gradient(-90deg, #211b3d 0%, #fff 100%);
 }
