@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/input";
 import { login, signup } from "@/utils/supabase/actions";
 import { CircleX } from "lucide-react";
+import Selection from "@/components/Login-RegiseterSelect";
 
 export default function Login() {
     const [nickname, setNickname] = useState('');
@@ -30,43 +31,45 @@ export default function Login() {
                 <h1 className="text-4xl text-[#f1f1f1] text-center font-bold">
                     {register ? "Register!" : "Login!"}
                 </h1>
-                <div className="absolute right-8 flex flex-row justify-center items-center ml-[2%] ">
-                    {register ? (
-                        <a className="text-[#c995ee] hover:text-[#b670e8] focus:text-[#b670e8] active:text-[#552b66] select-none cursor-pointer transition-colors ease-in-out duration-200" onClick={() => setRegister(true)}>register</a>
-                    ) : (
-                        <a className="hover:text-[#b670e8] focus:text-[#b670e8] active:text-[#552b66] select-none cursor-pointer transition-colors ease-in-out duration-200" onClick={() => setRegister(true)}> register </a>
-                    )}
 
-                    <span className="mx-2 font-extrabold">/</span>
-
-                    {!register ? (
-                        <a className="text-[#c995ee] hover:text-[#b670e8] focus:text-[#b670e8] active:text-[#552b66] select-none cursor-pointer transition-colors ease-in-out duration-200" onClick={() => setRegister(false)}>login</a>
-                    ) : (
-                        <a className="hover:text-[#b670e8] focus:text-[#b670e8] active:text-[#552b66] select-none cursor-pointer transition-colors ease-in-out duration-200" onClick={() => setRegister(false)}>login</a>
-                    )}
-                </div>
+                <Selection register={register} setRegister={setRegister} />
             </div>
+
             {error && (
                 <div className="flex mx-auto text-center  px-2 py-3 w-[350px] mt-4 bg-[#aa000058]  text-white border-2 border-solid border-red-600 rounded-lg items-center justify-start h-[3rem]">
-                    <CircleX size={30} className="py-1 absolute left-[205px] top-[80px]" color="#fb2626"/>
-                    {error} 
+                    <CircleX size={30} className="py-1 absolute left-[205px] top-[80px]" color="#fb2626" />
+                    {error}
                 </div>
             )}
+
             <form onSubmit={handleSubmit} className="flex flex-col ">
                 <div className="mt-1">
                     {register && (
-                        <Input label="nickname" isSearch={false} onValueChange={setNickname} name="nickname" id="nickInput" type="text" />
+                        <Input type="text" label="nickname" name="nickname" id="nickInput" 
+                            isSearch={false}
+                            onValueChange={setNickname}
+                        />
                     )}
                 </div>
-                <Input type="email" label="email" isSearch={false} onValueChange={setEmail} name="email" id="emailInput" />
-                <Input type="password" label="password" isSearch={false} onValueChange={setPassword} name="password" id="pswdInput" />
+
+                <Input type="email" label="email" name="email" id="emailInput"
+                    isSearch={false}
+                    onValueChange={setEmail}
+                />
+
+                <Input type="password" label="password" name="password" id="pswdInput"
+                    isSearch={false}
+                    onValueChange={setPassword}
+                />
+
                 {register && (
-                    <Input type="password" label="confirm" isSearch={false} name="confirmPassword" id="confirmPswdInput" />
+                    <Input type="password" label="confirm" name="confirmPassword" id="confirmPswdInput"
+                        isSearch={false}
+                    />
                 )}
 
                 <div className="mx-auto flex flex-row cursor-pointer relative items-center justify-between labelMovement">
-                    <button
-                        id="submitButton" type="submit"
+                    <button id="submitButton" type="submit"
                         className="self-center select-none w-96 h-10 text-xl font-semibold text-white border-2 border-solid border-[#7246d8] rounded-xl mt-[3%] bg-[#8257e7] hover:bg-violet-500 focus:bg-violet-600 ease-in-out duration-200">
                         Send
                     </button>

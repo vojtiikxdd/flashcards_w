@@ -46,7 +46,7 @@ export default function RootLayout({
                             <label htmlFor="search">
                                 <div className="flex flex-row gap-x-2 cursor-pointer">
                                     <div className="px-2 flex items-center cursor-pointer">
-                                        <Search className="border-none border-transparent" />
+                                        <Search className="border-none border-transparent" color="white" />
                                         <input id="search" type="text" placeholder="Search..." className="focus:border-[#7c46a3] w-full rounded-lg p-[3px] focus:outline-none bg-transparent border-none cursor-pointer focus:cursor-text autofill:bg-[#140f1c] group-autofill:bg-[#140f1c] placeholder: text-[1.1rem] " autoComplete="off" />
                                     </div>
                                 </div>

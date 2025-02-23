@@ -22,13 +22,13 @@ export function Input({ label, onValueChange, ...props }: InputProps) {
             {/* this is base to replace the search input*/}
             {props.name === "password" && (
                 <div className="absolute z-50 left-[135px] top-[24px] cursor-pointer infoBox">
-                    <Info />
+                    <Info color="white"/>
                 </div>
             )}
 
             {props.isSearch === true && (
                 <div >
-                    <Search className="border-none border-transparent" />
+                    <Search className="border-none border-transparent" color="white" />
                 </div>
             )}
             
@@ -66,7 +66,7 @@ export function Input({ label, onValueChange, ...props }: InputProps) {
                             props.type = "password";
                         }
                     }}>
-                    {isPassword === "password" ? <Eye /> : <EyeOff />} 
+                    {isPassword === "password" ? <Eye color="white" /> : <EyeOff color="white" />} 
                 </a>
             )}
         </div>
