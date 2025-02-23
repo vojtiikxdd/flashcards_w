@@ -13,9 +13,7 @@ export default function UserProfile({ user }: { user: User }) {
                         {user.nickname}
                     </div>
                     <div className='flex flex-col mt-4'>
-                        <p>
-                            {typeof user !== 'string' && user.nickname}
-                        </p>
+                        {typeof user !== 'string' && user.nickname}
                     </div>
                 </div>
                 <Link href="/" onClick={() => {
