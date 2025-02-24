@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Input } from "@/components/input";
+import { Input } from "@/components/inputLogin";
 import { login, signup } from "@/utils/supabase/actions";
 import { CircleX } from "lucide-react";
 import Selection from "@/components/Login-RegiseterSelect";
@@ -45,27 +45,22 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="flex flex-col ">
                 <div className="mt-1">
                     {register && (
-                        <Input type="text" label="nickname" name="nickname" id="nickInput" 
-                            isSearch={false}
+                        <Input type="text" label="nickname" name="nickname" id="nickInput"
                             onValueChange={setNickname}
                         />
                     )}
                 </div>
 
                 <Input type="email" label="email" name="email" id="emailInput"
-                    isSearch={false}
                     onValueChange={setEmail}
                 />
 
                 <Input type="password" label="password" name="password" id="pswdInput"
-                    isSearch={false}
                     onValueChange={setPassword}
                 />
 
                 {register && (
-                    <Input type="password" label="confirm" name="confirmPassword" id="confirmPswdInput"
-                        isSearch={false}
-                    />
+                    <Input type="password" label="confirm" name="confirmPassword" id="confirmPswdInput" />
                 )}
 
                 <div className="mx-auto flex flex-row cursor-pointer relative items-center justify-between labelMovement">

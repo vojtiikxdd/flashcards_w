@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import FlashcardEntry from "@/components/flashcardEntry";
+import { Input } from "@/components/inputCreateNew";
 
 export default function FlashcardEditor() {
     const [title, setTitle] = useState("");
@@ -9,7 +10,7 @@ export default function FlashcardEditor() {
     return (
         <div className="min-h-screen bg-[#1a1330] rounded-xl text-white m-6 p-4 ">
             {/* Title Input */}
-            <div className="bg-gray-800 p-4 rounded-lg">
+            <div className="bg-gray-800 p-4 rounded-lg items-start">
                 <label className="block text-gray-400 mb-2">Title</label>
                 <input
                     type="text"
@@ -18,6 +19,7 @@ export default function FlashcardEditor() {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
+                <Input id="title" label="Title" />
             </div>
 
             {/* Description and Tags */}
@@ -30,7 +32,7 @@ export default function FlashcardEditor() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
-            </div> 
+            </div>
 
             <FlashcardEntry />
         </div>
