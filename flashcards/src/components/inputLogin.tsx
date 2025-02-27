@@ -29,9 +29,7 @@ export function Input({ label, onValueChange, ...props }: InputProps) {
             )}
             
             <label htmlFor={props.id}
-            className={`absolute text-xl font-semibold text-[#cccccc] ease-in-out duration-200 bottom-[265px] left-[178px] bg-[#171717] cursor-pointer select-none  h-6 flex items-center justify-center rounded-xl ${isTopped ? "top-[2px] text-base left-[176px] px-2" : "top-[24px]"}`}>
-                {label}
-            </label>
+            className={`absolute text-xl font-semibold text-[#cccccc] ease-in-out duration-200 bottom-[265px] left-[178px] bg-[#171717] cursor-pointer select-none  h-6 flex items-center justify-center rounded-xl ${isTopped ? "top-[2px] text-base left-[176px] px-2" : "top-[24px]"}`}>{label}</label>
             <input
                 onChange={(e) => {
                     {(e.target.value.length > 0 || (e.target.value.length === 0 && isFocused)) ? setIsTopped(true) : setIsTopped(false)}

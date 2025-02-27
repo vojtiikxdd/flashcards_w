@@ -64,3 +64,15 @@ input:-webkit-autofill:active{
   padding: 2px;
   background: linear-gradient(-90deg, #1f1f1f 0%, #fff 100%);
 }
+
+.boxBgLightGrey1 {
+  background-color: #21212154;
+}
+
+.inputBgLightGrey {
+  background-color: #2c2c2cd8;
+}
+
+.txtareaBgLightGrey {
+  background-color: #3e3e3ed8;
+}
