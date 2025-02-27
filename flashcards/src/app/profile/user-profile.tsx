@@ -16,7 +16,7 @@ export default function UserProfile({ user }: { user: User }) {
                         {typeof user !== 'string' && user.nickname}
                     </div>
                 </div>
-                <Link href="/" onClick={() => signOut()} color="white">
+                <Link href="/" onClick={() => signOut()} className="text-white bg-[#00000055]">
                     sign out
                 </Link>
             </div>

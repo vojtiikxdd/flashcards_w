@@ -34,9 +34,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-[#1f1242]`}>
+            <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-[#121212] shadow[0_0px_100px_rgba(255,255,255,0.5)]`}>
                 {/*<div className="pointer-events-none absolute inset-0 bg-[#25153d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>*/}
-                <nav className={` ${poppins.className} p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-gradient-to-b from-[#130f1a] to-[#1a1327] font-bold`}>
+                <nav className={` ${poppins.className} p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-gradient-to-b from-[#131313] to-[#181818] font-bold`}>
                     <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl">
                         <Image src="/newLogo-remade.png" alt="idk" width={70} height={50} />
                         <h1 className="font-[Poppins] text-4xl text-white">FlashCards</h1>
@@ -76,7 +76,7 @@ export default function RootLayout({
                     {children}
                 </div>
 
-        <footer className="bg-gradient-to-b from-[#181225] to-[#14111e] justify-center flex flex-row items-center text-xl self-end w-full pb-12 pt-8 border-t-2 border-dashed">
+        <footer className="bg-gradient-to-t from-[#131313] to-[#181818] justify-center flex flex-row items-center text-xl self-end w-full pb-12 pt-8 border-t-2 border-dashed">
           <p className="text-white">Bylo nás 5ět</p>
           <Copyright className="ml-2" color="white" />
         </footer>

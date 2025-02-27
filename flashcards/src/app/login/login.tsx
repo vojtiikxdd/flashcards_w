@@ -26,7 +26,7 @@ export default function Login() {
     }
 
     return (
-        <main className={`absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#141414] border-dashed rounded-3xl w-[45rem] h-[25rem] bg-[#1f1f1f3d] ${(register && error) ? "h-[27rem]" : "h-[25rem]"}`}>
+        <main className={`absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#252525d8] border-dashed rounded-3xl w-[45rem] h-[25rem] bg-[#21212154] ${(register && error) ? "h-[27rem]" : "h-[25rem]"}`}>
             <div className="flex flex-row justify-center items-center mt-[2%]">
                 <h1 className="text-4xl text-[#f1f1f1] text-center font-bold">
                     {register ? "Register!" : "Login!"}

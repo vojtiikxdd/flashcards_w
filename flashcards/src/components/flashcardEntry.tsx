@@ -6,11 +6,11 @@ export default function FlashcardEntry() {
             <div className="border-t border-gray-700 mt-2 pt-2">
                 <textarea
                     placeholder="Term"
-                    className="w-full bg-gray-700 p-2 rounded-md text-white"
+                    className="w-full bg-gray-700 p-2 rounded-md text-white h-[46px] min-h-[38px] max-h-40"
                 ></textarea>
                 <textarea
                     placeholder="Definition"
-                    className="w-full bg-gray-700 p-2 rounded-md text-white mt-2"
+                    className="w-full bg-gray-700 p-2 rounded-md text-white mt-2 h-[46px] max-h-40 min-h-[40px]"
                 ></textarea>
             </div>
 

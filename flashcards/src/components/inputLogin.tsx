@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Eye } from "lucide-react";
 import { EyeOff } from "lucide-react";
 import { Info } from "lucide-react";
-import { Search } from "lucide-react";
 
 type InputProps = {
     label: string;
