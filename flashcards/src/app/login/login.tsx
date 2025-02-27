@@ -45,22 +45,22 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="flex flex-col ">
                 <div className="mt-1">
                     {register && (
-                        <Input type="text" label="nickname" name="nickname" id="nickInput"
+                        <Input isRegister={register} type="text" label="nickname" name="nickname" id="nickInput"
                             onValueChange={setNickname}
                         />
                     )}
                 </div>
 
-                <Input type="email" label="email" name="email" id="emailInput"
+                <Input isRegister={register} type="email" label="email" name="email" id="emailInput"
                     onValueChange={setEmail}
                 />
 
-                <Input type="password" label="password" name="password" id="pswdInput"
+                <Input isRegister={register} type="password" label="password" name="password" id="pswdInput"
                     onValueChange={setPassword}
                 />
 
                 {register && (
-                    <Input type="password" label="confirm" name="confirmPassword" id="confirmPswdInput" />
+                    <Input isRegister={register} type="password" label="confirm" name="confirmPassword" id="confirmPswdInput" />
                 )}
 
                 <div className="mx-auto flex flex-row cursor-pointer relative items-center justify-between labelMovement">
