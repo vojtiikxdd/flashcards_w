@@ -10,18 +10,22 @@ type InputProps = {
 export function Input({ label, ...props }: InputProps) {
     const [isTopped, setIsTopped] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
+    const [isFilled, setIsFilled] = useState(false);
 
     return (
         <div className="relative flex flex-row justify-center items-center py-3 px-2">
             <label htmlFor={props.id}
-                className={`flex absolute text-xl font-semibold ease-in-out duration-200 cursor-pointer select-none h-6 items-center justify-center rounded-xl 
-                ${isTopped ? "top-[0px] text-base left-[28px] text-[#cccccc] px-2" : "top-[20px] left-[22px] text-[#fff]"}`}
+                className={`${props.bgColor} flex absolute text-xl font-semibold ease-in-out duration-200 cursor-pointer select-none h-6 items-center justify-center rounded-xl 
+                ${isTopped ? "top-[0px] text-base left-[28px] px-2" : "top-[20px] left-[22px]"} 
+                ${(isFilled && isTopped) ? "text-[#cccccc]" : "text-white"}
+                ${!isFocused && "text-[#cccccc]"}`}
             >
                 {label}
             </label>
             <input
                 onChange={(e) => {
                     {(e.target.value.length > 0 || (e.target.value.length === 0 && isFocused)) ? setIsTopped(true) : setIsTopped(false)}
+                    setIsFilled(e.target.value.length > 0);
                 }}
                 onFocus={() => {
                     setIsTopped(true);
