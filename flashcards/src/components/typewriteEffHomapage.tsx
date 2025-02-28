@@ -22,6 +22,7 @@ export function TypewriterEff() {
     const [messageIndex, setMessageIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
 
     const typingSpeed = 100; // Rychlost psaní (ms)
     const deletingSpeed = 50; // Rychlost mazání (ms)
@@ -36,17 +37,20 @@ export function TypewriterEff() {
                 setDisplayText(currentMessage.substring(0, charIndex + 1));
                 setCharIndex((prev) => prev + 1);
             }, typingSpeed);
+            setIsTyping(true);
         } else if (!isDeleting && charIndex === currentMessage.length) {
             // Počkej chvíli a začni mazat
             setTimeout(() => {
                 setIsDeleting(true);
             }, pauseTime);
+            setIsTyping(false);
         } else if (isDeleting && charIndex > 0) {
             // Mazání znaků
             setTimeout(() => {
                 setDisplayText(currentMessage.substring(0, charIndex - 1));
                 setCharIndex((prev) => prev - 1);
             }, deletingSpeed);
+            setIsTyping(false);
         } else if (isDeleting && charIndex === 0) {
             // Přepnutí na další větu
             setIsDeleting(false);
@@ -59,7 +63,8 @@ export function TypewriterEff() {
             {/* Typewriter efekt pod hlavní větou */}
             <p className="text-white text-4xl font-semibold mt-6 min-h-[50px] text-center">
                 {displayText}
-                <span className="text-[#da25d4] animate-blink">|</span>
+                <span className={`text-[#da25d4] 
+                ${(isDeleting || isTyping) ? ("opacity-1") : ("animate-blink")}`}>|</span>
             </p>
         </div>
     );
