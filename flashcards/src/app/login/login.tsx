@@ -26,7 +26,7 @@ export default function Login() {
     }
 
     return (
-        <main className={`absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#252525d8] border-dashed rounded-3xl w-[45rem] h-[25rem] bg-[#21212154] ${(register && error) ? "h-[27rem]" : "h-[25rem]"}`}>
+        <main className={`absolute top-[45%] left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto border-2 border-[#252525d8] border-dashed rounded-3xl w-[45rem] h-[25rem] wrapBoxBgColor ${(register && error) ? "h-[27rem]" : "h-[25rem]"}`}>
             <div className="flex flex-row justify-center items-center mt-[2%]">
                 <h1 className="text-4xl text-[#f1f1f1] text-center font-bold">
                     {register ? "Register!" : "Login!"}
@@ -45,22 +45,22 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="flex flex-col ">
                 <div className="mt-1">
                     {register && (
-                        <Input isRegister={register} type="text" label="nickname" name="nickname" id="nickInput"
+                        <Input type="text" label="nickname" name="nickname" id="nickInput"
                             onValueChange={setNickname}
                         />
                     )}
                 </div>
 
-                <Input isRegister={register} type="email" label="email" name="email" id="emailInput"
+                <Input type="email" label="email" name="email" id="emailInput"
                     onValueChange={setEmail}
                 />
 
-                <Input isRegister={register} type="password" label="password" name="password" id="pswdInput"
+                <Input type="password" label="password" name="password" id="pswdInput"
                     onValueChange={setPassword}
                 />
 
                 {register && (
-                    <Input isRegister={register} type="password" label="confirm" name="confirmPassword" id="confirmPswdInput" />
+                    <Input type="password" label="confirm" name="confirmPassword" id="confirmPswdInput" />
                 )}
 
                 <div className="mx-auto flex flex-row cursor-pointer relative items-center justify-between labelMovement">

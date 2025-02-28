@@ -65,6 +65,10 @@ input:-webkit-autofill:active{
   background: linear-gradient(-90deg, #1f1f1f 0%, #fff 100%);
 }
 
+.wrapBoxBgColor {
+  background-color: #151515;
+}
+
 .boxBgLightGrey1 {
   background-color: #21212154;
 }
