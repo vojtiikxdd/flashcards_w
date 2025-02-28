@@ -9,7 +9,7 @@ import { Plus } from "lucide-react";
 
 type InputProps = {
     label: string;
-    isRegister: boolean;
+    //isRegister: boolean;
     onValueChange?: (value: string) => void;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
