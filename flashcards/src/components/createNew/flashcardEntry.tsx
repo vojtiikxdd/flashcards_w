@@ -1,32 +1,46 @@
 import { DivideIcon, Plus } from "lucide-react";
+import { FlashcardItem } from "./flashcardItem";
+
+let id = 4;
 
 type Props = {
     bgColor: string;
     txtareaBgCol: string;
 }
 
-function addItem() {
-    console.log("clicked");
+function IndexIdCreator() {
+    id++;
+
+    return id;
+}
+
+function addItem(props: Props) {
+    console.log(IndexIdCreator());
+    return (
+        <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
+            <FlashcardItem entryIndex={IndexIdCreator()} txtareaBgCol="txtareaBgLightGrey" />
+        </div>
+    );
 }
 
 export default function FlashcardEntry({ ...props }: Props) {
     return (
         <div>
             <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-                <div className="pt-2">
-                    <textarea
-                        placeholder="Term"
-                        className={`${props.txtareaBgCol} w-full p-2 rounded-md text-white h-[46px] min-h-[40px] max-h-40`}
-                    />
-                    <textarea
-                        placeholder="Definition"
-                        className={`${props.txtareaBgCol} w-full p-2 rounded-md text-white h-[46px] min-h-[40px] max-h-40 mt-2`}
-                    />
-                </div>
+                <FlashcardItem entryIndex={1} txtareaBgCol="txtareaBgLightGrey" />
+            </div>
+            <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
+                <FlashcardItem entryIndex={2} txtareaBgCol="txtareaBgLightGrey" />
+            </div>
+            <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
+                <FlashcardItem entryIndex={3} txtareaBgCol="txtareaBgLightGrey" />
+            </div>
+            <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
+                <FlashcardItem entryIndex={4} txtareaBgCol="txtareaBgLightGrey" />
             </div>
             <div className="flex justify-center mt-4">
                 <button
-    	            onClick={addItem} type="button"
+                    onClick={() => addItem(props)} type="button"
                     className="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg"
                 >
                     <Plus size={30} />
