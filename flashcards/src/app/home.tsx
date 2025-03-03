@@ -19,7 +19,7 @@ export default function Home({ user }: { user: User | string }) {
             );
     }*/
 
-    if (typeof user === 'object') console.log(user.nickname);
+    if (typeof user === 'object') console.log(user.nickname); //undefined ????
 
     return (
         <main className="flex flex-1 flex-col">
@@ -35,11 +35,11 @@ export default function Home({ user }: { user: User | string }) {
                         </div>
                     </div>
                     <div className="flex flex-row my-8 ml-12 self-start ">
-                        <Link href={"/createNew"} className="flex flex-row items-center bg-[#2592da] text-[#fff] text-lg font-bold px-2 py-1 rounded-3xl duration-200 transition-all ease-in-out hover:bg-[#0874bd]">
+                        <Link href={"/createNew"} className="flex flex-row items-center buttonBlue text-[#fff] text-lg font-bold px-2 py-1 rounded-3xl duration-200 transition-all ease-in-out">
                             <Plus size={30} className="pr-1" />
                             Create new!
                         </Link>
-                        <Link href="/myFlashcards" className="flex flex-row items-center bg-[#ed960b] text-[#fff] text-lg px-2 py-1 pl-3 font-bold rounded-3xl duration-200 transition-all ease-in-out hover:bg-[#c07908] ml-4">
+                        <Link href="/myFlashcards" className="flex flex-row items-center buttonYellow text-[#fff] text-lg px-2 py-1 pl-3 font-bold rounded-3xl duration-200 transition-all ease-in-out ml-4">
                             My Flashcards
                             <ArrowRight />
                         </Link>

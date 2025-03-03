@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Input } from "@/components/login/inputLogin";
 import { login, signup } from "@/utils/supabase/actions";
 import { CircleX } from "lucide-react";
-import Selection from "@/components/login/Login-RegiseterSelect";
+import Selection from "@/components/login/selection";
 
 export default function Login() {
     const [nickname, setNickname] = useState('');

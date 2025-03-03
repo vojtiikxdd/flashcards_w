@@ -85,6 +85,22 @@ input:-webkit-autofill:active{
   animation: blink 1s infinite;
 }
 
+.buttonBlue {
+  background-color: #2081c2;
+}
+
+.buttonBlue:hover {
+  background-color: #0874bd;
+}	
+
+.buttonYellow {
+  background-color: #dd8d0d;
+}
+
+.buttonYellow:hover {
+  background-color: #c07908;
+}
+
 @keyframes blink {
   0%, 100% {
     opacity: 1;
