@@ -4,12 +4,13 @@ import { useState } from "react";
 import FlashcardEntry from "@/components/createNew/flashcardEntry";
 import { Input } from "@/components/createNew/inputCreateNew";
 import { ArrowLeft } from "lucide-react";
-import { Redirect } from "next";
+import Selection from "@/components/login/selection";
 
 
 export default function CreateNew() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [privateFlashcards, setPrivateFlashcards] = useState(true);
 
     return (
         <div className="min-h-screen boxBgLightGrey1 border-dashed border-2 border-[#252525d8] rounded-xl text-white m-14 p-6">
@@ -23,7 +24,7 @@ export default function CreateNew() {
                     </a>
                     <h1 className="text-2xl mx-auto my-4 font-semibold">Create new flashcards</h1>
                     {/* */}
-                
+
                 </div>
                 <div className="flex flex-col items-center p-4 bg-[#202020] rounded-xl w-full">
                     <div className="inputBgLightGrey p-1 rounded-lg items-start w-full">
@@ -43,9 +44,11 @@ export default function CreateNew() {
                         />
                     </div>
                 </div>
-
-                
-
+                <div>
+                    
+                    <Selection defaultVal={privateFlashcards} firstValue="private" 
+                    secondValue="public" setValue={setPrivateFlashcards} />
+                </div>
                 <FlashcardEntry bgColor="inputBgLightGrey" txtareaBgCol="txtareaBgLightGrey" />
             </form>
         </div>

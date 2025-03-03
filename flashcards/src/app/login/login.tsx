@@ -32,7 +32,7 @@ export default function Login() {
                     {register ? "Register!" : "Login!"}
                 </h1>
 
-                <Selection register={register} setRegister={setRegister} />
+                <Selection defaultVal={register} firstValue="register" secondValue="login" setValue={setRegister} />
             </div>
 
             {error && (

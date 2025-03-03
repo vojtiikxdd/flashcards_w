@@ -1,0 +1,10 @@
+SatureBlue:         #2081c2
+SatureBlue:hover    #0874bd
+
+SatureYellow:       #dd8d0d
+SatureYellow:hover  #c07908
+
+wrapBoxBgColor:     #151515
+boxBgLightGrey1:    #21212154
+inputBgLightGrey:   #2c2c2c
+txtareaBgLightGrey: #3e3e3e
