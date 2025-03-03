@@ -10,7 +10,7 @@ type SelectionProps = {
 export default function Selection({defaultVal, setValue, ...props}: SelectionProps) {
 
     return (
-        <div className="absolute right-8 flex flex-row justify-center text-white items-center ml-[2%] inputBgLightGrey rounded-lg px-2 py-1">
+        <div className="right-8 flex flex-row justify-center text-white items-center ml-[2%] inputBgLightGrey rounded-lg px-2 py-1">
             {defaultVal ? (
                 <a className={`${props.firstColors} select-none cursor-pointer transition-colors ease-in-out duration-200`} onClick={() => setValue(true)}> {props.firstValue} </a>
             ) : (
