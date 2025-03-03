@@ -44,7 +44,7 @@ export default function CreateNew() {
                         />
                     </div>
                 </div>
-                <div className="flex flex-row justify-center m-4 h-6">
+                <div className="flex flex-row justify-end m-4 h-6">
                     <Selection 
                         defaultVal={privateFlashcards} 
                         firstValue="private" 
