@@ -31,8 +31,14 @@ export default function Login() {
                 <h1 className="text-4xl text-[#f1f1f1] text-center font-bold">
                     {register ? "Register!" : "Login!"}
                 </h1>
-
-                <Selection defaultVal={register} firstValue="register" secondValue="login" setValue={setRegister} />
+                <Selection
+                    defaultVal={register}
+                    firstValue="register"
+                    secondValue="login"
+                    setValue={setRegister}
+                    firstColors="selection1Violet"
+                    secondColors="selection2Violet"
+                />
             </div>
 
             {error && (
@@ -65,7 +71,7 @@ export default function Login() {
 
                 <div className="mx-auto flex flex-row cursor-pointer relative items-center justify-between labelMovement">
                     <button id="submitButton" type="submit"
-                        className="self-center select-none w-96 h-10 text-xl font-semibold text-white border-2 border-solid border-[#7246d8] rounded-xl mt-[3%] bg-[#8257e7] hover:bg-violet-500 focus:bg-violet-600 ease-in-out duration-200">
+                        className="self-center select-none w-96 h-10 text-xl font-semibold text-white rounded-xl mt-[3%] bg-[#a13fda] hover:bg-[#8934bb] focus:bg-[#9638cc] active:bg-[#910cdd] ease-in-out duration-200">
                         Send
                     </button>
                 </div>

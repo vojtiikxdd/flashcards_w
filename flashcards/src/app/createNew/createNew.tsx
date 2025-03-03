@@ -44,10 +44,15 @@ export default function CreateNew() {
                         />
                     </div>
                 </div>
-                <div>
-                    
-                    <Selection defaultVal={privateFlashcards} firstValue="private" 
-                    secondValue="public" setValue={setPrivateFlashcards} />
+                <div className="flex flex-row justify-center m-4 h-6">
+                    <Selection 
+                        defaultVal={privateFlashcards} 
+                        firstValue="private" 
+                        secondValue="public" 
+                        setValue={setPrivateFlashcards}
+                        firstColors="selection1Blue"
+                        secondColors="selection2Blue"
+                    />
                 </div>
                 <FlashcardEntry bgColor="inputBgLightGrey" txtareaBgCol="txtareaBgLightGrey" />
             </form>

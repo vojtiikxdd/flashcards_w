@@ -101,6 +101,50 @@ input:-webkit-autofill:active{
   background-color: #c07908;
 }
 
+.selection1Blue {
+  color: #59b3f0; 
+}
+
+.selection1Blue:hover,
+.selection1Blue:focus {
+  color: #4899cf;
+}
+
+.selection1Blue:active {
+  color: #3c70ac;
+}
+
+.selection2Blue:hover,
+.selection2Blue:focus {
+  color: #4899cf;
+}
+
+.selection2Blue:active {
+  color: #3c70ac;
+}
+
+.selection1Violet {
+  color: #b351ec; 
+}
+
+.selection1Violet:hover,
+.selection1Violet:focus {
+  color: #9e33db;
+}
+
+.selection1Violet:active {
+  color: #910cdd;
+}
+
+.selection2Violet:hover,
+.selection2Violet:focus {
+  color: #9e33db
+}
+
+.selection2Violet:active {
+  color: #910cdd;
+}
+
 @keyframes blink {
   0%, 100% {
     opacity: 1;
