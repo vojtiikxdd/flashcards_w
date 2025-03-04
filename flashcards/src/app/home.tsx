@@ -8,7 +8,7 @@ import { TypewriterEff } from "@/components/typewriteEffHomapage";
 
 export default function Home({ user }: { user: User | string }) {
     const session = typeof user === 'object';
-    
+
     const count = 5; //will be replaced with actual count of recently used flashcards
 
     /*
@@ -31,7 +31,9 @@ export default function Home({ user }: { user: User | string }) {
                     <div className="self-start justify-between ml-8">
                         <p className="font-bold text-xl mb-4 text-white RecentFlshcrdBoxLabel">Recent flashcards</p>
                         <div className="flex flex-row flex-wrap ml-4">
-                            <FlashcardsBox />
+                            <a href="/cards">
+                                <FlashcardsBox />
+                            </a>
                         </div>
                     </div>
                     <div className="flex flex-row my-8 ml-12 self-start ">
