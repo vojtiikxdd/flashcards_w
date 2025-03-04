@@ -1,0 +1,28 @@
+.card {
+    perspective: 1000px; /* Aby karta vypadala jako 3D */
+  }
+  
+  .front,
+  .back {
+    position: absolute;
+    backface-visibility: hidden; /* Skrývá zadní stranu při otočení */
+    width: 100%;
+    height: 100%;
+  }
+  
+  .front {
+    background-color: #4c9ed9; /* Barva přední strany */
+  }
+  
+  .back {
+    background-color: #73a763; /* Barva zadní strany */
+    transform: rotateY(180deg); /* Zadní strana je otočená */
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg); /* Otočí kartu na druhou stranu */
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden; /* Skrývá zadní stranu */
+  }
