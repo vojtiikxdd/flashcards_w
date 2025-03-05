@@ -22,21 +22,21 @@ export default function FlashcardEntry({ ...props }: Props) {
 
     function buttonCounter(e: React.MouseEvent<HTMLButtonElement>) {
         if (e.currentTarget.textContent === "+") {
-            if (addCounter < 20) setAddCounter(addCounter + 1);
+            if (addCounter < 20) setAddCounter((prev) => prev + 1);
         } else if (e.currentTarget.textContent === "-") {
-            if (addCounter > 1) setAddCounter(addCounter - 1);
+            if (addCounter > 1) setAddCounter((prev) => prev - 1);
         }
     }
 
     function addItem() {
-        setFlashcards((prev) => [...prev, IndexIdCreator()]);
+        setFlashcards((prev) => [...prev, prev.length > 0 ? Math.max(...prev) + 1 : 1]);
     }
 
     return (
         <div>
             {flashcards.map((entryIndex) => (
                 <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-                    <FlashcardItem entryIndex={entryIndex} txtareaBgCol="txtareaBgLightGrey" />
+                    <FlashcardItem id={id} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
                 </div>
             ))}
             <div className="flex flex-row justify-center mt-4">
