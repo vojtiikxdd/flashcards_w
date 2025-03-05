@@ -1,4 +1,5 @@
 import { SingleItem } from "./singleItem";
+import { Trash2 } from "lucide-react";
 
 type Props = {
     txtareaBgCol: string;
@@ -9,7 +10,16 @@ type Props = {
 export function FlashcardItem({ ...props }: Props) {
     return (
         <div className="pt-2 flex flex-col justify-between">
-            {props.entryIndex}
+            <div className="flex flex-row justify-between mb-2">
+                {props.entryIndex}
+                <Trash2 
+                    style={{ color: "white", transition: "color 0.2s" }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = "#d4312b"}
+                    onMouseLeave={(e) => e.currentTarget.style.color = "white"}
+                    className="cursor-pointer" 
+                />
+            </div>
+
             <div className="flex flex-row justify-center gap-4">
                 <SingleItem
                     id={props.entryIndex}
@@ -26,7 +36,6 @@ export function FlashcardItem({ ...props }: Props) {
                     txtareaBgCol={props.txtareaBgCol}
                 />
             </div>
-
         </div>
     )
 }

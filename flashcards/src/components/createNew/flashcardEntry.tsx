@@ -5,7 +5,6 @@ import { NewCardCounter } from "./newCard&Counter";
 
 let id = 4;
 
-
 type Props = {
     bgColor: string;
     txtareaBgCol: string;
@@ -35,10 +34,21 @@ export default function FlashcardEntry({ ...props }: Props) {
     return (
         <div>
             {flashcards.map((entryIndex) => (
-                <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-                    <FlashcardItem id={id} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
+                <div className="flex flex-col">
+                    <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
+
+                        <FlashcardItem id={id} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
+                    </div>
+                    {flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
+                        <div className="justify-center flex flex-row gap-2 mt-4 w-full">
+                            <div className="flex flex-row items-center gap-2 rounded-full">
+                                <Plus fill="white" color="white" size={20} />
+                            </div>
+                        </div>
+                    )}
                 </div>
             ))}
+
             <div className="flex flex-row justify-center mt-4">
                 <NewCardCounter addCounter={addCounter} setAddCounter={setAddCounter} buttonCounter={buttonCounter} addItem={addItem} />
             </div>
