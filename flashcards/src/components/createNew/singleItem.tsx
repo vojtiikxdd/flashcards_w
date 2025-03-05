@@ -29,14 +29,7 @@ export function SingleItem({ ...props }: Props) {
     let id = IdCreator(props);
 
     return (
-        <div className="relative">
-            <label htmlFor={id}
-                className={`text-white text-xl absolute rounded-xl ease-in-out duration-200 cursor-pointer select-none
-                    ${props.txtareaBgCol} ${isTopped ? "top-[-16px] text-base left-[10px] px-2" : "top-[8px] px-2"}
-                `}
-            >
-                {props.label}
-            </label>
+        <div className="flex flex-col gap-2 w-auto">
             <textarea
                 onChange={(e) => {
                     { (e.target.value.length > 0 || (e.target.value.length === 0 && isFocused)) ? setIsTopped(true) : setIsTopped(false) }
@@ -54,6 +47,11 @@ export function SingleItem({ ...props }: Props) {
                 id={id}
                 className={`${props.txtareaBgCol} w-full p-2 rounded-md text-white h-[46px] min-h-[40px] max-h-40`}
             />
+            <label htmlFor={id}
+                className={`text-white text-xl rounded-xl ease-in-out duration-200 cursor-pointer select-none w-auto ${props.txtareaBgCol}`}
+            >
+                {props.label}
+            </label>
         </div>
     )
 }

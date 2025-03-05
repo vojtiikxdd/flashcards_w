@@ -34,18 +34,11 @@ export default function FlashcardEntry({ ...props }: Props) {
 
     return (
         <div>
-            <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-                <FlashcardItem entryIndex={1} txtareaBgCol="txtareaBgLightGrey" />
-            </div>
-            <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-                <FlashcardItem entryIndex={2} txtareaBgCol="txtareaBgLightGrey" />
-            </div>
-            <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-                <FlashcardItem entryIndex={3} txtareaBgCol="txtareaBgLightGrey" />
-            </div>
-            <div className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-                <FlashcardItem entryIndex={4} txtareaBgCol="txtareaBgLightGrey" />
-            </div>
+            {flashcards.map((entryIndex) => (
+                <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
+                    <FlashcardItem entryIndex={entryIndex} txtareaBgCol="txtareaBgLightGrey" />
+                </div>
+            ))}
             <div className="flex flex-row justify-center mt-4">
                 <NewCardCounter addCounter={addCounter} setAddCounter={setAddCounter} buttonCounter={buttonCounter} addItem={addItem} />
             </div>
