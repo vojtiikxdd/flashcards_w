@@ -18,7 +18,8 @@ export function SingleItem({ ...props }: Props) {
                 className={`${props.txtareaBgCol} w-[100%] p-2 rounded-md text-white h-[40px] min-h-[40px] max-h-40`}
             />
             <label htmlFor={props.id + props.name}
-                className={`text-white text-xl text-center rounded-xl ease-in-out duration-200 cursor-pointer select-none w-[20%] ${props.txtareaBgCol}`}
+                className={`text-white text-xl text-center rounded-xl ease-in-out duration-200 cursor-pointer select-none
+                ${props.name === "term" ? "w-[62px]" : "w-[134px]"} ${props.txtareaBgCol}`}
             >
                 {props.label}
             </label>

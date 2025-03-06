@@ -4,7 +4,10 @@ import { Trash2, ArrowUpDown } from "lucide-react";
 type Props = {
     txtareaBgCol: string;
     entryIndex: number;
+    onDelete: (entryIndex: number) => void;
 }
+
+
 
 export function FlashcardItem({ ...props }: Props) {
     return (
@@ -17,6 +20,7 @@ export function FlashcardItem({ ...props }: Props) {
                         onMouseEnter={(e) => e.currentTarget.style.color = "#d4312b"}
                         onMouseLeave={(e) => e.currentTarget.style.color = "white"}
                         className="cursor-pointer"
+                        onClick={() => props.onDelete(props.entryIndex)}
                     />
                     <ArrowUpDown 
                         style={{ color: "white", transition: "color 0.2s" }}

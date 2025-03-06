@@ -9,14 +9,14 @@ type Props = {
 
 export function NewCardCounter({ ...props }: Props) {
     return (
-        <div className="py-2 px-8 rounded-full bg-[#3e3e3e] flex flex-row items-center gap-2">
+        <div className="py-2 px-2 rounded-full bg-[#3e3e3e] flex flex-row items-center gap-5">
             <button
                 onClick={() => props.addItem()} type="button"
                 className="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg"
             >
                 <Plus size={30} />
             </button>
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex flex-row items-center gap-5">
                 <p className="font-bold text-xl">Add cards</p>
                 <div className="flex flex-row items-center rounded-full bg-white gap-2">
                     <input type="number"
