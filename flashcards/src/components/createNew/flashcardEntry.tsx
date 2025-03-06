@@ -3,16 +3,9 @@ import { FlashcardItem } from "./flashcardItem";
 import { useState } from "react";
 import { NewCardCounter } from "./newCard&Counter";
 
-let id = 4;
-
 type Props = {
     bgColor: string;
     txtareaBgCol: string;
-}
-
-function IndexIdCreator() {
-    id++;
-    return id;
 }
 
 export default function FlashcardEntry({ ...props }: Props) {
@@ -36,8 +29,7 @@ export default function FlashcardEntry({ ...props }: Props) {
             {flashcards.map((entryIndex) => (
                 <div className="flex flex-col">
                     <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
-
-                        <FlashcardItem id={id} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
+                        <FlashcardItem entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
                     </div>
                     {flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
                         <div className="justify-center flex flex-row gap-2 mt-4 w-full">

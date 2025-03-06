@@ -1,10 +1,9 @@
 import { SingleItem } from "./singleItem";
-import { Trash2 } from "lucide-react";
+import { Trash2, ArrowUpDown } from "lucide-react";
 
 type Props = {
     txtareaBgCol: string;
     entryIndex: number;
-    id: number;
 }
 
 export function FlashcardItem({ ...props }: Props) {
@@ -12,12 +11,20 @@ export function FlashcardItem({ ...props }: Props) {
         <div className="pt-2 flex flex-col justify-between">
             <div className="flex flex-row justify-between mb-2">
                 {props.entryIndex}
-                <Trash2 
-                    style={{ color: "white", transition: "color 0.2s" }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = "#d4312b"}
-                    onMouseLeave={(e) => e.currentTarget.style.color = "white"}
-                    className="cursor-pointer" 
-                />
+                <div className="flex flex-row gap-2">
+                    <Trash2
+                        style={{ color: "white", transition: "color 0.2s" }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = "#d4312b"}
+                        onMouseLeave={(e) => e.currentTarget.style.color = "white"}
+                        className="cursor-pointer"
+                    />
+                    <ArrowUpDown 
+                        style={{ color: "white", transition: "color 0.2s" }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = "#1daae2"}
+                        onMouseLeave={(e) => e.currentTarget.style.color = "white"}
+                        className="cursor-pointer"
+                    />
+                </div>
             </div>
 
             <div className="flex flex-row justify-center gap-4">
