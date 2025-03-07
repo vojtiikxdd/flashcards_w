@@ -20,21 +20,48 @@ export default function FlashcardEntry({ ...props }: Props) {
         }
     }
 
-    function addItem() {
+    function addItem(entryIndex?: number) {
         setFlashcards((prev) => {
-            const lastIndex = prev.length > 0 ? Math.max(...prev) : 0;
-            const newCards = Array.from({ length: addCounter }, (_, i) => lastIndex + i + 1);
-            return [...prev, ...newCards];
+            if (entryIndex === undefined) {
+                // Default behavior: Add at the end
+                const lastIndex = prev.length > 0 ? Math.max(...prev) : 0;
+                const newCards = Array.from({ length: addCounter }, (_, i) => lastIndex + i + 1);
+                return [...prev, ...newCards];
+            } else {
+                // Find the position in the array where entryIndex is located
+                const insertPos = prev.indexOf(entryIndex);
+                if (insertPos === -1) return prev; // Safety check: entryIndex not found
+
+                // Generate new cards starting from the next available number
+                const newCards = Array.from({ length: addCounter }, (_, i) => entryIndex + i + 1);
+
+                // Shift numbers greater than entryIndex up by addCounter
+                const updatedFlashcards = prev.map((num) =>
+                    num > entryIndex ? num + addCounter : num
+                );
+
+                // Insert new cards at the correct position
+                return [
+                    ...updatedFlashcards.slice(0, insertPos + 1),
+                    ...newCards,
+                    ...updatedFlashcards.slice(insertPos + 1),
+                ];
+            }
         });
-        setAddCounter(1);
     }
 
     function deleteItem(entryIndex: number) {
-        if(entryIndex > 4)
-            setFlashcards((prev) => prev.filter((index) => index !== entryIndex));
-        else
-            alert("You can't delete the first 4 flashcards!"); // This is a temporary solution
-    }    
+        if (flashcards.length > 4) {
+            setFlashcards((prev) =>
+                prev
+                    .filter((num) => num !== entryIndex) // Remove the selected number
+                    .map((num) => (num > entryIndex ? num - 1 : num)) // Shift higher numbers down
+            );
+        } else {
+            alert("You can't delete the first 4 flashcards!");
+        }
+    }
+
 
     return (
         <div>
@@ -45,9 +72,11 @@ export default function FlashcardEntry({ ...props }: Props) {
                     </div>
                     {flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
                         <div className="justify-center flex flex-row gap-2 mt-4 w-full">
-                            <div className="flex flex-row items-center gap-2 rounded-full">
+                            <a className="flex flex-row items-center gap-2 rounded-full"
+                                onClick={() => addItem(entryIndex)}
+                            >
                                 <Plus fill="white" color="white" size={20} />
-                            </div>
+                            </a>
                         </div>
                     )}
                 </div>
