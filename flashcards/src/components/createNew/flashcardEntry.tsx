@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Check, Plus } from "lucide-react";
 import { FlashcardItem } from "./flashcardItem";
 import { useState } from "react";
 import { NewCardCounter } from "./newCard&Counter";
@@ -11,6 +11,11 @@ type Props = {
 export default function FlashcardEntry({ ...props }: Props) {
     const [addCounter, setAddCounter] = useState(1);
     const [flashcards, setFlashcards] = useState<number[]>([1, 2, 3, 4]);
+    const [hiddenMode, setHiddenMode] = useState(false);
+
+    function createFlashcard() {
+        console.log("Flashcards created!"); // Placeholder for future functionality
+    }
 
     function buttonCounter(e: React.MouseEvent<HTMLButtonElement>) {
         if (e.currentTarget.textContent === "+") {
@@ -65,30 +70,33 @@ export default function FlashcardEntry({ ...props }: Props) {
         }
     }
 
-
     return (
         <div>
             {flashcards.map((entryIndex) => (
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-2">
                     <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
                         <FlashcardItem onDelete={() => deleteItem(entryIndex)} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
                     </div>
                     {flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
-                        <div className="justify-center flex flex-row gap-2 h-2 mt-4 w-full">
-                            <a className="hidden hover:flex flex-row items-center gap-2 rounded-full bg-blue-500 p-2 cursor-pointer" onClick={() => addItem(entryIndex)}>
+                        <div className="justify-center flex flex-row gap-2 h-2 w-full"
+                            onMouseEnter={(e) => {
+                                setHiddenMode(true);
+                            }}
+                            onMouseLeave={(e) => {
+                                setHiddenMode(false);
+                            }}
+                        >
+                            <a className={`hover:flex flex-row items-center gap-2 rounded-full bg-blue-500 cursor-pointer ${hiddenMode ? "flex w-0 h-0" : "hidden w-2 h-2"}`}
+
+                                onClick={(e) => {
+                                    addItem(entryIndex);
+                                    e.stopPropagation();
+                                }}
+                            >
                                 <Plus
                                     fill="white"
                                     color="white"
                                     size={20}
-                                    className="hidden"
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.classList.remove("hidden");
-                                        e.currentTarget.classList.add("flex");
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.classList.add("hidden");
-                                        e.currentTarget.classList.remove("flex");
-                                    }}
                                 />
                             </a>
                         </div>
@@ -99,6 +107,18 @@ export default function FlashcardEntry({ ...props }: Props) {
             <div className="flex flex-row justify-center mt-4">
                 <NewCardCounter addCounter={addCounter} setAddCounter={setAddCounter} buttonCounter={buttonCounter} addItem={addItem} />
             </div>
+
+            <div className="flex flex-row justify-end mt-4 h-[41px]">
+                <button
+                    type="button"
+                    onClick={() => createFlashcard()}
+                    className="flex flex-row buttonGreen p-2 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)] "
+                >
+                    Create
+                    <Check size={25} color="#fff" className="rounded-full bg-[#21eb53] p-[2px]" />
+                </button>
+            </div>
+
         </div>
     );
 }

@@ -101,6 +101,14 @@ input:-webkit-autofill:active{
   background-color: #c07908;
 }
 
+.buttonGreen {
+  background-color: #1de248f3;
+}
+
+.buttonGreen:hover {
+  background-color: #10bd36;
+}
+
 .selection1Blue {
   color: #1daae2; 
 }
