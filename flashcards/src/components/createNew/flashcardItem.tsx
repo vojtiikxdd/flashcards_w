@@ -24,7 +24,7 @@ export function FlashcardItem({ ...props }: Props) {
                     />
                     <ArrowUpDown 
                         style={{ color: "white", transition: "color 0.2s" }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = "#1daae2"}
+                        onMouseEnter={(e) => e.currentTarget.style.color = "ffb00a"}
                         onMouseLeave={(e) => e.currentTarget.style.color = "white"}
                         className="cursor-pointer"
                     />

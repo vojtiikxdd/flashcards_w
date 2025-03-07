@@ -28,11 +28,11 @@ export default function FlashcardEntry({ ...props }: Props) {
                 const newCards = Array.from({ length: addCounter }, (_, i) => lastIndex + i + 1);
                 return [...prev, ...newCards];
             } else {
-                // Find the position in the array where entryIndex is located
+                // Find the position of entryIndex
                 const insertPos = prev.indexOf(entryIndex);
                 if (insertPos === -1) return prev; // Safety check: entryIndex not found
 
-                // Generate new cards starting from the next available number
+                // Generate new cards that should be inserted
                 const newCards = Array.from({ length: addCounter }, (_, i) => entryIndex + i + 1);
 
                 // Shift numbers greater than entryIndex up by addCounter
@@ -40,15 +40,18 @@ export default function FlashcardEntry({ ...props }: Props) {
                     num > entryIndex ? num + addCounter : num
                 );
 
-                // Insert new cards at the correct position
+                // Insert the new cards directly **after** the clicked card
                 return [
-                    ...updatedFlashcards.slice(0, insertPos + 1),
-                    ...newCards,
-                    ...updatedFlashcards.slice(insertPos + 1),
+                    ...updatedFlashcards.slice(0, insertPos + 1), // Keep cards before entryIndex
+                    ...newCards, // Insert new cards
+                    ...updatedFlashcards.slice(insertPos + 1), // Keep the rest, but shifted
                 ];
             }
         });
+
+        setAddCounter(1);
     }
+
 
     function deleteItem(entryIndex: number) {
         if (flashcards.length > 4) {
@@ -71,11 +74,22 @@ export default function FlashcardEntry({ ...props }: Props) {
                         <FlashcardItem onDelete={() => deleteItem(entryIndex)} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
                     </div>
                     {flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
-                        <div className="justify-center flex flex-row gap-2 mt-4 w-full">
-                            <a className="flex flex-row items-center gap-2 rounded-full"
-                                onClick={() => addItem(entryIndex)}
-                            >
-                                <Plus fill="white" color="white" size={20} />
+                        <div className="justify-center flex flex-row gap-2 h-2 mt-4 w-full">
+                            <a className="hidden hover:flex flex-row items-center gap-2 rounded-full bg-blue-500 p-2 cursor-pointer" onClick={() => addItem(entryIndex)}>
+                                <Plus
+                                    fill="white"
+                                    color="white"
+                                    size={20}
+                                    className="hidden"
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.classList.remove("hidden");
+                                        e.currentTarget.classList.add("flex");
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.classList.add("hidden");
+                                        e.currentTarget.classList.remove("flex");
+                                    }}
+                                />
                             </a>
                         </div>
                     )}
