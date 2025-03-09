@@ -13,12 +13,14 @@ import {
 export default function Cards() {
   const numbers = Array.from({ length: 10 }, (_, i) => i + 1);
   const answers = numbers.map((num) => `Odpověď ${num}`);
-
+  
   // Stav bude objekt, kde kľúč je index karty a hodnota je či je otočená
   const [flipStates, setFlipStates] = useState<{ [key: number]: boolean }>({});
 
+
   // Pre ukladanie času na zistenie, či bolo kliknuté alebo podržané
   const pressTimer = useRef<any>(null);
+
 
   // Funkcia na otočenie karty pri kliknutí
   const handleFlip = (index: number) => {
@@ -37,7 +39,6 @@ export default function Cards() {
       setFlipStates((prev) => ({ ...prev, [index]: !prev[index] }));
     });
   };
-
 
   return (
     <main>
@@ -64,8 +65,6 @@ export default function Cards() {
                   className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
                   onClick={() => handleFlip(index)} 
                   onMouseDown={() => handleLongPressStart(index)} 
-                
-               
                 >
                   {answers[index]}
                 </p>

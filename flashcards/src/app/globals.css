@@ -148,8 +148,6 @@ input:-webkit-autofill:active{
   }
 }
 
-
-
 @layer base {
   :root {
         --background: 0 0% 100%;
@@ -205,8 +203,6 @@ input:-webkit-autofill:active{
         --chart-5: 340 75% 55%;
     }
 }
-
-
 
 @layer base {
   * {
