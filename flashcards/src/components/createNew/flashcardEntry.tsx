@@ -77,7 +77,7 @@ export default function FlashcardEntry({ ...props }: Props) {
                     <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
                         <FlashcardItem onDelete={() => deleteItem(entryIndex)} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
                     </div>
-                    {flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
+                    {/*flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
                         <div className="justify-center flex flex-row gap-2 h-2 w-full"
                             onMouseEnter={(e) => {
                                 setHiddenMode(true);
@@ -86,7 +86,7 @@ export default function FlashcardEntry({ ...props }: Props) {
                                 setHiddenMode(false);
                             }}
                         >
-                            <a className={`hover:flex flex-row items-center gap-2 rounded-full bg-blue-500 cursor-pointer ${hiddenMode ? "flex w-0 h-0" : "hidden w-2 h-2"}`}
+                            <a className={`hover:flex flex-row items-center gap-2 rounded-full bg-blue-500 cursor-pointer ${hiddenMode ? "flex w-2 h-2" : "hidden w-0 h-0"}`}
 
                                 onClick={(e) => {
                                     addItem(entryIndex);
@@ -100,7 +100,7 @@ export default function FlashcardEntry({ ...props }: Props) {
                                 />
                             </a>
                         </div>
-                    )}
+                    )*/}
                 </div>
             ))}
 
@@ -118,7 +118,6 @@ export default function FlashcardEntry({ ...props }: Props) {
                     <Check size={25} color="#fff" className="rounded-full bg-[#21eb53] p-[2px]" />
                 </button>
             </div>
-
         </div>
     );
 }
