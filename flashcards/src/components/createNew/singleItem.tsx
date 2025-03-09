@@ -29,8 +29,8 @@ export function SingleItem({ ...props }: Props) {
     return (
         <div className="relative">
             <label htmlFor={id}
-                className={`text-white text-xl absolute rounded-xl ease-in-out duration-200 cursor-pointer select-none
-                    ${props.txtareaBgCol} ${isTopped ? "top-[-16px] text-base left-[10px] px-2" : "top-[8px] px-2"} 
+                className={`text-white text-xl absolute rounded-xl ease-in-out duration-200 cursor-pointer select-none ${props.txtareaBgCol}
+                    ${isTopped ? "top-[-16px] text-base left-[10px] px-2" : "top-[8px] px-2"} 
                 `}
             >
                 {props.label}

@@ -9,16 +9,6 @@ import { TypewriterEff } from "@/components/typewriteEffHomapage";
 export default function Home({ user }: { user: User | string }) {
     const session = typeof user === 'object';
 
-    const count = 5; //will be replaced with actual count of recently used flashcards
-
-    /*
-    const FlashcardBoxCount = () => {
-        for (count as number) {
-            return (
-                <FlashcardsBox />
-            );
-    }*/
-
     if (typeof user === 'object') console.log(user.nickname); //undefined ????
 
     return (
