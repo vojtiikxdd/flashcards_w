@@ -88,11 +88,11 @@ input:-webkit-autofill:active{
 }	
 
 .buttonYellow {
-  background-color: #dd8d0d;
+  background-color: #f6b109;
 }
 
 .buttonYellow:hover {
-  background-color: #c07908;
+  background-color: #dd9e00;
 }
 
 .buttonGreen {

@@ -27,13 +27,13 @@ export default function Home({ user }: { user: User | string }) {
                         </div>
                     </div>
                     <div className="flex flex-row my-8 ml-12 self-start ">
-                        <Link href={"/createNew"} className="flex flex-row items-center buttonBlue text-[#fff] text-lg font-bold px-2 py-1 rounded-3xl duration-200 transition-all ease-in-out">
-                            <Plus size={30} className="pr-1" />
+                        <Link href={"/createNew"} className="flex gap-1 flex-row items-center buttonBlue text-[#fff] text-lg px-2 py-2 rounded-3xl duration-200 transition-all ease-in-out shadow-[0px_1px_6px_rgba(25,25,25,1)]">
+                            <Plus size={30} className="rounded-full bg-[#59b3f0]" />
                             Create new!
                         </Link>
-                        <Link href="/myFlashcards" className="flex flex-row items-center buttonYellow text-[#fff] text-lg px-2 py-1 pl-3 font-bold rounded-3xl duration-200 transition-all ease-in-out ml-4">
+                        <Link href="/myFlashcards" className="flex flex-row items-center buttonYellow text-[#fff] text-lg px-2 py-1 gap-1 rounded-3xl duration-200 transition-all ease-in-out ml-4 shadow-[0px_1px_6px_rgba(25,25,25,1)]">
                             My Flashcards
-                            <ArrowRight />
+                            <ArrowRight size={30} className="rounded-full bg-[#f6c13d]" />
                         </Link>
                     </div>
                 </div>
