@@ -19,12 +19,10 @@ export default function CreateNew() {
                     <a href="/"
                         className="top-3 flex flex-row items-center buttonBlue p-2 mb-8 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)]"
                     >
-                        <ArrowLeft className="rounded-full bg-[#55b7f8]" />
+                        <ArrowLeft className="rounded-full bg-[#59b3f0]" />
                         Go back!
                     </a>
                     <h1 className="text-2xl mx-auto my-4 font-semibold">Create new flashcards</h1>
-                    {/* */}
-
                 </div>
                 <div className="flex flex-col items-center p-4 bg-[#202020] rounded-xl w-full">
                     <div className="inputBgLightGrey p-1 rounded-lg items-start w-full">

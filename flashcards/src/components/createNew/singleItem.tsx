@@ -5,53 +5,24 @@ type Props = {
     label: string;
     name: string;
     entryIndex: number;
+    id: number;
 }
 
 export function SingleItem({ ...props }: Props) {
-    const [isTopped, setIsTopped] = useState(false);
-    const [isFocused, setIsFocused] = useState(false);
-
-    const IdCreator = ({ ...props }: Props) => {
-        let id;
-    
-        if (props.name === "term") {
-            id = "term" + props.entryIndex;
-        }
-        else if (props.name === "definition") {
-            id = "definition" + props.entryIndex;
-        }
-    
-        return id;
-    }
-
-    let id = IdCreator(props);
-
     return (
-        <div className="relative">
-            <label htmlFor={id}
-                className={`text-white text-xl absolute rounded-xl ease-in-out duration-200 cursor-pointer select-none ${props.txtareaBgCol}
-                    ${isTopped ? "top-[-16px] text-base left-[10px] px-2" : "top-[8px] px-2"} 
-                `}
+        <div className="flex flex-col gap-2 w-[100%]">
+            <textarea
+                id={props.id + props.name}
+                name="term"
+                placeholder="Enter text here"
+                className={`${props.txtareaBgCol} w-[100%] p-2 rounded-md text-white h-[40px] min-h-[40px] max-h-40`}
+            />
+            <label htmlFor={props.id + props.name}
+                className={`text-white text-xl text-center rounded-xl ease-in-out duration-200 cursor-pointer select-none
+                ${props.name === "term" ? "w-[62px]" : "w-[134px]"} ${props.txtareaBgCol}`}
             >
                 {props.label}
             </label>
-            <textarea
-                onChange={(e) => {
-                    { (e.target.value.length > 0 || (e.target.value.length === 0 && isFocused)) ? setIsTopped(true) : setIsTopped(false) }
-                }}
-                onFocus={() => {
-                    setIsTopped(true);
-                    setIsFocused(true);
-                }}
-                onBlur={(e) => {
-                    setIsFocused(false);
-                    if (e.target.value.length === 0) {
-                        setIsTopped(false);
-                    }
-                }}
-                id={id}
-                className={`${props.txtareaBgCol} w-full p-2 rounded-md text-white h-[46px] min-h-[40px] max-h-40`}
-            />
         </div>
     )
 }

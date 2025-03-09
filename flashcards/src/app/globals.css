@@ -95,26 +95,34 @@ input:-webkit-autofill:active{
   background-color: #c07908;
 }
 
+.buttonGreen {
+  background-color: #1de248f3;
+}
+
+.buttonGreen:hover {
+  background-color: #10bd36;
+}
+
 .selection1Blue {
-  color: #59b3f0; 
+  color: #1daae2; 
 }
 
 .selection1Blue:hover,
 .selection1Blue:focus {
-  color: #4899cf;
+  color: #068bc0;
 }
 
 .selection1Blue:active {
-  color: #3c70ac;
+  color: #2661a5;
 }
 
 .selection2Blue:hover,
 .selection2Blue:focus {
-  color: #4899cf;
+  color: #068bc0;
 }
 
 .selection2Blue:active {
-  color: #3c70ac;
+  color: #2661a5;
 }
 
 .selection1Violet {
