@@ -13,6 +13,7 @@ import {
 export default function Cards() {
     const numbers = Array.from({ length: 10 }, (_, i) => i + 1);
     const answers = numbers.map((num) => `Odpověď ${num}`);
+    const questions = numbers.map((num) => `Položka ${num}`);
 
     // Stav bude objekt, kde kľúč je index karty a hodnota je či je otočená
     const [flipStates, setFlipStates] = useState<{ [key: number]: boolean }>({});
@@ -53,16 +54,14 @@ export default function Cards() {
                         <CarouselItem key={index} className="carousel-item w-full p-4">
                             <ReactCardFlip isFlipped={!!flipStates[index]} flipDirection="vertical">
                                 {/* Predná strana */}
-                                <p
-                                    className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
+                                <p className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
                                     onClick={() => handleFlip(index)}
                                 >
-                                    Položka {num}
+                                    {questions[index]}
                                 </p>
 
                                 {/* Zadná strana */}
-                                <p
-                                    className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
+                                <p className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
                                     onClick={() => handleFlip(index)}
                                     onMouseDown={() => handleLongPressStart(index)}
                                 >

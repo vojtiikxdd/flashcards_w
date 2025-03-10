@@ -73,11 +73,11 @@ export default function FlashcardEntry({ ...props }: Props) {
     return (
         <div>
             {flashcards.map((entryIndex) => (
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2" key={`${entryIndex}`}>
                     <div key={entryIndex} className={`${props.bgColor} p-4 rounded-lg mt-4`}>
                         <FlashcardItem onDelete={() => deleteItem(entryIndex)} entryIndex={entryIndex} txtareaBgCol={props.txtareaBgCol} />
                     </div>
-                    {/*flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
+                    {flashcards.findLastIndex((index) => index === entryIndex) !== flashcards.length - 1 && (
                         <div className="justify-center flex flex-row gap-2 h-2 w-full"
                             onMouseEnter={(e) => {
                                 setHiddenMode(true);
@@ -100,7 +100,7 @@ export default function FlashcardEntry({ ...props }: Props) {
                                 />
                             </a>
                         </div>
-                    )*/}
+                    )}
                 </div>
             ))}
 
