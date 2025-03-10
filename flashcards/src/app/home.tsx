@@ -9,14 +9,18 @@ import { TypewriterEff } from "@/components/typewriteEffHomapage";
 export default function Home({ user }: { user: User | string }) {
     const session = typeof user === 'object';
 
-    if (typeof user === 'object') console.log(user.nickname); //undefined ????
-
     return (
         <main className="flex flex-1 flex-col">
             {session ? (
                 <div className="flex flex-col w-full m-auto justify-center items-center">
                     <p className="text-[#fff] text-4xl font-medium relative my-20">
-                        Welcome back, {user.nickname} <span className="italic text-red-400">name</span><span className="bg-clip-text from-[#5e25da] to-[#da25d4] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">{user.nickname}</span>! <br />Wanna study sum?
+                        Welcome back,
+                        <span className="bg-clip-text from-[#2592da] to-[#dc10e7] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">
+                            {session && user.name}
+                        </span>
+                        !
+                        <br />
+                        Wanna study sum?
                     </p>
                     <div className="self-start justify-between ml-8">
                         <p className="font-bold text-xl mb-4 text-white RecentFlshcrdBoxLabel">Recent flashcards</p>
