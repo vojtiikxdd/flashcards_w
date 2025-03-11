@@ -1,5 +1,4 @@
 import { User } from "@/utils/schemas";
-{/*import { getCookieNames } from "@/utils/supabase/server";*/}
 
 import Link from "next/link";
 import { Plus } from "lucide-react";
@@ -10,13 +9,6 @@ import { TypewriterEff } from "@/components/typewriteEffHomapage";
 export default function Home({ user }: { user: User | string }) {
     const session = typeof user === 'object';
 
-    {/*const cookieNames = await getCookieNames();*/}
-
-    console.log(user);
-    if (session) {
-        console.log(user.nickname);
-    }
-
     return (
         <main className="flex flex-1 flex-col">
             {session ? (
@@ -24,7 +16,7 @@ export default function Home({ user }: { user: User | string }) {
                     <p className="text-[#fff] text-4xl font-medium relative my-20">
                         Welcome back, {" "}
                         <span className="bg-clip-text from-[#2592da] to-[#dc10e7] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">
-                            {user.nickname}
+                            {user.name}
                         </span>
                         !
                         <br />

@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import { Input } from "@/components/login/inputLogin";
 import { login, signup } from "@/utils/supabase/actions";
-import { CircleX } from "lucide-react";
 import Selection from "@/components/login/selection";
+
+import { ErrorMessage } from "@/components/login/errorMessage";
+
 
 export default function Login() {
     const [nickname, setNickname] = useState('');
@@ -44,10 +46,7 @@ export default function Login() {
             </div>
 
             {error && (
-                <div className="flex mx-auto text-center  px-2 py-3 w-[350px] mt-4 bg-[#aa000058]  text-white border-2 border-solid border-red-600 rounded-lg items-center justify-start h-[3rem]">
-                    <CircleX size={30} className="py-1 absolute left-[205px] top-[80px]" color="#fb2626" />
-                    {error}
-                </div>
+                <ErrorMessage error={error} />
             )}
 
             <form onSubmit={handleSubmit} className="flex flex-col ">
