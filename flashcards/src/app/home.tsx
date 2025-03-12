@@ -7,7 +7,9 @@ import { FlashcardsBox } from "@/components/flashcardsBox";
 import { TypewriterEff } from "@/components/typewriteEffHomapage";
 
 export default function Home({ user }: { user: User | string }) {
-    const session = typeof user === 'object';
+    const session = !!user && typeof user === 'object';
+    console.log(session);
+    console.log(user);
 
     return (
         <main className="flex flex-1 flex-col">
@@ -16,7 +18,7 @@ export default function Home({ user }: { user: User | string }) {
                     <p className="text-[#fff] text-4xl font-medium relative my-20">
                         Welcome back, {" "}
                         <span className="bg-clip-text from-[#2592da] to-[#dc10e7] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">
-                            {user.name}
+                            {(user as User).name}
                         </span>
                         !
                         <br />

@@ -3,8 +3,6 @@ import Home from "./home";
 
 export default async function HomeWrapper() {
     const user = await getUser();
-    console.log(user);
 
-    return <Home user={user} />;
+    return <Home user={typeof user === "string" ? (user as string) : user} />;
 }
-

@@ -37,6 +37,8 @@ export async function signup({
   password: string,
   nickname: string
 }): Promise<string | never> {
+  console.log(email, password, nickname);
+
   const supabase = await createClient();
 
   const { error } = await supabase.auth.signUp({
