@@ -13,7 +13,7 @@ export default function Login() {
     const [register, setRegister] = useState(false);
     const [email, setEmail] = useState('');
     const [error, setError] = useState<string | undefined>('');
-    const [showingFullError, setShowingFullError] = useState(false); // State for expanded error
+    const [showingFullError, setShowingFullError] = useState(false);    // State for expanded error
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
