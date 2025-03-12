@@ -6,7 +6,7 @@ import { signOut } from "@/utils/supabase/actions";
 
 export default function UserProfile({ user }: { user: User }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [nickname, setNickname] = useState(user?.name || "Unknown User");
+  const [nickname, setNickname] = useState(user?.username || "Unknown User");
   const [email, setEmail] = useState(user?.email || "");
   const [error, setError] = useState("");
 
@@ -69,7 +69,7 @@ export default function UserProfile({ user }: { user: User }) {
               <button
                 onClick={() => {
                   setIsEditing(false);
-                  setNickname(user?.name || "Unknown User");
+                  setNickname(user?.username || "Unknown User");
                   setError("");
                 }}
                 className="px-6 py-2 bg-gray-600 text-white text-lg font-semibold rounded-lg hover:bg-gray-500 transition-all"
