@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowLeft } from "lucide-react";
 import React, { useState, useRef } from "react";
 import ReactCardFlip from "react-card-flip";
 import {
@@ -42,9 +43,20 @@ export default function Cards() {
     };
 
     return (
-        <main>
+        <main className="flex flex-col absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[55rem] h-[30rem] justify-between">
+            <div className="flex flex-row h-auto justify-between items-center">
+                <a href="/"
+                    className="flex flex-row items-center buttonBlue my-auto  p-2 rounded-full text-white ease-in-out duration-200 gap-2 shadow-[0px_1px_6px_rgba(25,25,25,1)]"
+                >
+                    <ArrowLeft size={25} className="rounded-full bg-[#59b3f0]" />
+                    Go back!
+                </a>
+                <p className="text-white">Flashcards
+
+                </p>
+            </div>
             <Carousel
-                className="text-white text-center flex absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 m-auto justify-center items-center border-2 border-[#ffffff60] border-dashed rounded-3xl w-[55rem] h-[30rem]"
+                className="text-white text-center flex mx-auto items-center border-2 border-[#ffffff60] border-dashed rounded-3xl w-[45rem] h-[26rem]"
             >
                 <CarouselContent
                     onTouchStart={handleCarouselMove} // Pri dotyku na mobile
