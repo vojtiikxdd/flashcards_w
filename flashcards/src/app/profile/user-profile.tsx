@@ -4,10 +4,10 @@ import { useState } from "react";
 import { User } from "@/utils/schemas";
 import { signOut } from "@/utils/supabase/actions";
 
-export default function UserProfile({ user }: { user: User }) {
+export default function UserProfile({ user }: { user: User | string }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [nickname, setNickname] = useState(user?.nickname || "Unknown User");
-  const [email, setEmail] = useState(user?.email || "");
+  const [nickname, setNickname] = useState((user as User)?.nickname || "Unknown User");
+  const [email, setEmail] = useState((user as User)?.email || "");
   const [error, setError] = useState("");
 
   const handleSave = () => {
@@ -18,6 +18,8 @@ export default function UserProfile({ user }: { user: User }) {
     setError("");
     setIsEditing(false);
   };
+
+  console.log((user as User).nickname);
 
   return (
     <main className="flex justify-center items-center min-h-screen bg-[#121212]">
@@ -69,7 +71,7 @@ export default function UserProfile({ user }: { user: User }) {
               <button
                 onClick={() => {
                   setIsEditing(false);
-                  setNickname(user?.nickname || "Unknown User");
+                  setNickname((user as User)?.nickname || "Unknown User");
                   setError("");
                 }}
                 className="px-6 py-2 bg-gray-600 text-white text-lg font-semibold rounded-lg hover:bg-gray-500 transition-all"
