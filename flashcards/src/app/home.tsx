@@ -8,9 +8,7 @@ import { TypewriterEff } from "@/components/typewriteEffHomapage";
 
 export default function Home({ user }: { user: User | string }) {
     const session = !!user && typeof user === 'object';
-    console.log(session);
-    console.log(user);
-
+    
     return (
         <main className="flex flex-1 flex-col">
             {session ? (
