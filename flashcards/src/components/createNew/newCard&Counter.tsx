@@ -12,7 +12,7 @@ export function NewCardCounter({ ...props }: Props) {
         <div className="py-2 px-2 rounded-full bg-[#3e3e3e] flex flex-row items-center gap-5">
             <button
                 onClick={() => props.addItem()} type="button"
-                className="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg"
+                className="w-12 h-12 bg-blue-700 hover:bg-blue-800 ease-in-out duration-200 text-white rounded-full flex items-center justify-center shadow-lg"
             >
                 <Plus size={30} />
             </button>
