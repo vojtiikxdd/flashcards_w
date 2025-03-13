@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowLeft, Check } from "lucide-react";
+
 import FlashcardEntry from "@/components/createNew/flashcardEntry";
 import { Input } from "@/components/createNew/inputCreateNew";
-import { ArrowLeft, Check } from "lucide-react";
 import Selection from "@/components/login/selection";
 
 
@@ -16,13 +17,7 @@ export default function CreateNew() {
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log({
-            title,
-            description,
-            privateFlashcards,
-            questionsList,
-            answersList,
-        });
+        console.log(title, description, privateFlashcards, questionsList, answersList);
     }
 
     return (
