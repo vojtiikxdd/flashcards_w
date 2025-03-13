@@ -1,4 +1,4 @@
-import { Check, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { FlashcardItem } from "./flashcardItem";
 import { useState } from "react";
 import { NewCardCounter } from "./newCard&Counter";
@@ -8,7 +8,6 @@ interface FlashcardEntryProps {
     txtareaBgCol: string;
     setQuestionsList: React.Dispatch<React.SetStateAction<string[]>>; // Add the setter for questions list
     setAnswersList: React.Dispatch<React.SetStateAction<string[]>>; // Add the setter for answers list
-    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void; // Add handleSubmit prop
 }
 
 export default function FlashcardEntry({
@@ -16,7 +15,6 @@ export default function FlashcardEntry({
     txtareaBgCol,
     setQuestionsList,
     setAnswersList,
-    handleSubmit,
 }: FlashcardEntryProps) {
     const [addCounter, setAddCounter] = useState(1);
     const [flashcards, setFlashcards] = useState<number[]>([1, 2, 3, 4]);
@@ -110,21 +108,6 @@ export default function FlashcardEntry({
                     buttonCounter={buttonCounter}
                     addItem={addItem}
                 />
-            </div>
-
-            <div className="flex flex-row justify-end mt-4 h-[41px]">
-                {/* Trigger handleSubmit passed from parent */}
-                <button
-                    type="button"
-                    onClick={(e) => {
-                        e.stopPropagation(); // Prevents the event from bubbling up
-                        handleSubmit; // Then call handleSubmit from parent
-                    }}
-                    className="flex flex-row buttonGreen p-2 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)]"
-                >
-                    Create
-                    <Check size={25} color="#fff" className="rounded-full bg-[#21eb53] p-[2px]" />
-                </button>
             </div>
         </div>
     );

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import FlashcardEntry from "@/components/createNew/flashcardEntry";
 import { Input } from "@/components/createNew/inputCreateNew";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 import Selection from "@/components/login/selection";
 
 
@@ -15,6 +15,7 @@ export default function CreateNew() {
     const [answersList, setAnswersList] = useState<string[]>([]);
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
         console.log({
             title,
             description,
@@ -69,8 +70,17 @@ export default function CreateNew() {
                     txtareaBgCol="txtareaBgLightGrey"
                     setQuestionsList={setQuestionsList}
                     setAnswersList={setAnswersList}
-                    handleSubmit={handleSubmit}
                 />
+                <div className="flex flex-row justify-end mt-4 h-[41px]">
+                    {/* Trigger handleSubmit passed from parent */}
+                    <button
+                        type="submit"
+                        className="flex flex-row buttonGreen p-2 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)]"
+                    >
+                        Create
+                        <Check size={25} color="#fff" className="rounded-full bg-[#21eb53] p-[2px]" />
+                    </button>
+                </div>
             </form>
         </div>
     );
