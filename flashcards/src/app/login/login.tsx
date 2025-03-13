@@ -33,7 +33,9 @@ export default function Login() {
             border-2 border-[#252525d8] border-dashed rounded-3xl w-[45rem] wrapBoxBgColor ease-in-out duration-200 
             ${register ?
                 (error ? (showingFullError ? "h-[29rem]" : "h-[27rem]") : "h-[25rem]")
-                : (showingFullError ? "h-[25rem]" : "h-[22rem]")}
+                :
+                (showingFullError ? "h-[25rem]" : "h-[22rem]")
+            }
         `}>
             <div className="flex flex-row justify-center items-center mt-[2%]">
                 <h1 className="text-4xl text-[#f1f1f1] text-center font-bold">
@@ -59,14 +61,13 @@ export default function Login() {
                 />
             )}
 
-            <form onSubmit={handleSubmit} className="flex flex-col">
-                <div className="mt-1">
-                    {register && (
-                        <Input type="text" label="nickname" name="nickname" id="nickInput"
-                            onValueChange={setNickname}
-                        />
-                    )}
-                </div>
+            <form onSubmit={handleSubmit}
+                className={`flex flex-col ${!register && (error ? "mt-1" : "mt-6")}`}>
+                {register && (
+                    <Input type="text" label="nickname" name="nickname" id="nickInput"
+                        onValueChange={setNickname}
+                    />
+                )}
 
                 <Input type="email" label="email" name="email" id="emailInput"
                     onValueChange={setEmail}
