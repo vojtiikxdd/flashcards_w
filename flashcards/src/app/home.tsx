@@ -8,7 +8,7 @@ import { TypewriterEff } from "@/components/typewriteEffHomapage";
 
 export default function Home({ user }: { user: User | string }) {
     const session = !!user && typeof user === 'object';
-    
+
     return (
         <main className="flex flex-1 flex-col">
             {session ? (
@@ -16,7 +16,7 @@ export default function Home({ user }: { user: User | string }) {
                     <p className="text-[#fff] text-4xl font-medium relative my-20">
                         Welcome back,, {" "}
                         <span className="bg-clip-text from-[#2592da] to-[#dc10e7] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">
-                            {(user as User).name}
+                            {(user as User).username}
                         </span>
                         !
                         <br />

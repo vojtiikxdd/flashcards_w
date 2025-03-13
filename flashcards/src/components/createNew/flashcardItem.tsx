@@ -5,11 +5,11 @@ type Props = {
     txtareaBgCol: string;
     entryIndex: number;
     onDelete: (entryIndex: number) => void;
-}
+    setQuestionsList: React.Dispatch<React.SetStateAction<string[]>>;
+    setAnswersList: React.Dispatch<React.SetStateAction<string[]>>;
+};
 
-
-
-export function FlashcardItem({ ...props }: Props) {
+export function FlashcardItem({ setQuestionsList, setAnswersList, ...props }: Props) {
     return (
         <div className="pt-2 flex flex-col justify-between">
             <div className="flex flex-row justify-between mb-2">
@@ -24,7 +24,7 @@ export function FlashcardItem({ ...props }: Props) {
                     />
                     <ArrowUpDown 
                         style={{ color: "white", transition: "color 0.2s" }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = "ffb00a"}
+                        onMouseEnter={(e) => e.currentTarget.style.color = "#ffb00a"}
                         onMouseLeave={(e) => e.currentTarget.style.color = "white"}
                         className="cursor-pointer"
                     />
@@ -35,18 +35,22 @@ export function FlashcardItem({ ...props }: Props) {
                 <SingleItem
                     id={props.entryIndex}
                     label="Term"
-                    name="term"
+                    name="question"
                     entryIndex={props.entryIndex}
                     txtareaBgCol={props.txtareaBgCol}
+                    setQuestionsList={setQuestionsList}
+                    setAnswersList={setAnswersList}
                 />
                 <SingleItem
                     id={props.entryIndex}
                     label="Definition"
-                    name="definition"
+                    name="answer"
                     entryIndex={props.entryIndex}
                     txtareaBgCol={props.txtareaBgCol}
+                    setQuestionsList={setQuestionsList}
+                    setAnswersList={setAnswersList}
                 />
             </div>
         </div>
-    )
+    );
 }
