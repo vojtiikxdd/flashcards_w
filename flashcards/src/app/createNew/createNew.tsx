@@ -12,9 +12,13 @@ export default function CreateNew() {
     const [description, setDescription] = useState("");
     const [privateFlashcards, setPrivateFlashcards] = useState(true);
 
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+    }
+
     return (
         <div className="min-h-screen boxBgLightGrey1 border-dashed border-2 border-[#252525d8] rounded-xl text-white m-14 p-6">
-            <form action="">
+            <form onSubmit={handleSubmit}>
                 <div className="flex flex-row items-center justify-between relative mb-6">
                     <a href="/"
                         className="top-3 flex flex-row items-center buttonBlue p-2 mb-8 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)]"
