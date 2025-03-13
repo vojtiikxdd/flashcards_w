@@ -11,9 +11,17 @@ export default function CreateNew() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [privateFlashcards, setPrivateFlashcards] = useState(true);
+    const [questionsList, setQuestionsList] = useState<string[]>([]);
+    const [answersList, setAnswersList] = useState<string[]>([]);
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
+        console.log({
+            title,
+            description,
+            privateFlashcards,
+            questionsList,
+            answersList,
+        });
     }
 
     return (
@@ -47,16 +55,22 @@ export default function CreateNew() {
                     </div>
                 </div>
                 <div className="flex flex-row justify-end m-4 h-6">
-                    <Selection 
-                        defaultVal={privateFlashcards} 
-                        firstValue="private" 
-                        secondValue="public" 
+                    <Selection
+                        defaultVal={privateFlashcards}
+                        firstValue="private"
+                        secondValue="public"
                         setValue={setPrivateFlashcards}
                         firstColors="selection1Blue"
                         secondColors="selection2Blue"
                     />
                 </div>
-                <FlashcardEntry bgColor="inputBgLightGrey" txtareaBgCol="txtareaBgLightGrey" />
+                <FlashcardEntry
+                    bgColor="inputBgLightGrey"
+                    txtareaBgCol="txtareaBgLightGrey"
+                    setQuestionsList={setQuestionsList}
+                    setAnswersList={setAnswersList}
+                    handleSubmit={handleSubmit}
+                />
             </form>
         </div>
     );
