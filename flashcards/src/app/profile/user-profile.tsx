@@ -15,30 +15,30 @@ export default function UserProfile({ user }: { user: User }) {
 
     const handleSave = async () => {
         if (!nickname.trim()) {
-            setError("Jméno nesmí být prázdné!");
+            setError("Name must be filled!");
             return;
         }
-    
+
         setLoading(true);
         setError("");
-    
+
         try {
             const { data: profileData, error: profileError } = await supabase
                 .from("profiles")
                 .update({ username: nickname })
                 .eq("id", user.id)
                 .select();
-    
-            if (profileError) throw new Error(`Chyba při aktualizaci profilu: ${profileError.message}`);
-    
+
+            if (profileError) throw new Error(`Error updating profile: ${profileError.message}`);
+
             setIsEditing(false);
         } catch (err) {
-            console.error("Chyba:", err);
-    
+            console.error("Error:", err);
+
             if (err instanceof Error) {
                 setError(err.message);
             } else {
-                setError("Neznámá chyba při ukládání dat.");
+                setError("Unknown saving data error!");
             }
         } finally {
             setLoading(false);
@@ -64,7 +64,7 @@ export default function UserProfile({ user }: { user: User }) {
                         value={nickname}
                         onChange={(e) => setNickname(e.target.value)}
                         className="mt-2 px-4 py-2 w-3/4 text-xl text-center text-white bg-[#202020] border border-[#868686] hover:border-[#b0b0b0] rounded-lg focus:outline-none focus:border-none focus:outline-[#5e25da] ease-in-out duration-200"
-                        placeholder="Zadej jméno"
+                        placeholder="Username"
                     />
                     {email && <p className="mt-1 text-lg text-[#ffffff90]">{email}</p>}
 
@@ -80,7 +80,7 @@ export default function UserProfile({ user }: { user: User }) {
                             disabled={!nickname.trim() || loading}
                         >
                             {loading && <Bolt size={20} className="animate-spin" />}
-                            {loading ? "Ukládám..." : "Uložit"}
+                            {loading ? "Saving..." : "Save"}
                         </button>
                         <button
                             onClick={() => {
@@ -91,7 +91,7 @@ export default function UserProfile({ user }: { user: User }) {
                             }}
                             className="px-6 select-none py-2 bg-gray-600 text-white text-lg font-semibold rounded-full hover:bg-[#414142] ease-in-out duration-200"
                         >
-                            Zrušit
+                            Cancel
                         </button>
                     </div>
                 </div>
@@ -106,13 +106,13 @@ export default function UserProfile({ user }: { user: User }) {
                             className="px-3 py-2 select-none bg-[#0f3dbc] rounded-full text-white text-lg font-semibold hover:bg-[#0c3299] ease-in-out duration-200 flex gap-2 items-center"
                         >
                             <UserPen size={30} className="p-1 bg-[#2e5dde] rounded-full" />
-                            Upravit
+                            Edit
                         </button>
                         <button
                             onClick={() => signOut()}
                             className="px-3 py-2 select-none flex flex-row gap-2 bg-[#dd2828] text-white text-lg font-semibold rounded-full hover:bg-[#ba1717] ease-out duration-200"
                         >
-                            Odhlásit se
+                            Log out
                             <LogOut size={30} className="p-1 bg-[#ff4343] rounded-full" />
                         </button>
                     </div>
