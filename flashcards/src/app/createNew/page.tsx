@@ -6,8 +6,6 @@ export default async function CreateNewPageWrapper() {
     const client = await createClient();
     const user = await client.auth.getUser();
 
-    console.log(user.data.user?.id);
-
     if (!user.data.user) {
         redirect("/login");
     }

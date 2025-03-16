@@ -19,10 +19,8 @@ export default function Cards() {
     // Stav bude objekt, kde kľúč je index karty a hodnota je či je otočená
     const [flipStates, setFlipStates] = useState<{ [key: number]: boolean }>({});
 
-
     // Pre ukladanie času na zistenie, či bolo kliknuté alebo podržané
     const pressTimer = useRef<any>(null);
-
 
     // Funkcia na otočenie karty pri kliknutí
     const handleFlip = (index: number) => {
@@ -51,9 +49,7 @@ export default function Cards() {
                     <ArrowLeft size={25} className="rounded-full bg-[#59b3f0]" />
                     Go back!
                 </a>
-                <p className="text-white">Flashcards
-
-                </p>
+                <p className="text-white">Flashcards</p>
             </div>
             <Carousel
                 className="text-white text-center flex mx-auto items-center border-2 border-[#ffffff60] border-dashed rounded-3xl w-[45rem] h-[26rem]"
@@ -66,7 +62,7 @@ export default function Cards() {
                         <CarouselItem key={index} className="carousel-item w-full p-4">
                             <ReactCardFlip isFlipped={!!flipStates[index]} flipDirection="vertical">
                                 {/* Predná strana */}
-                                <p className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
+                                <p className="text-lg w-full h-full whitespace-normal break-words p-20 cursor-pointer"
                                     onClick={() => handleFlip(index)}
                                 >
                                     {questions[index]}

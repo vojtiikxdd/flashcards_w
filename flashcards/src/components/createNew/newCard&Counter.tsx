@@ -37,7 +37,7 @@ export function NewCardCounter({ ...props }: Props) {
                         </button>
                         <button type="button"
                             id='minus'
-                            className="flex h-4 items-center justify-center text-black text-xl hover:bg-[#bbb] rounded-sm ease-in-out duration-200"
+                            className="flex flex-col h-4 items-center align-middle justify-center text-black text-xl hover:bg-[#bbb] rounded-sm ease-in-out duration-200"
                             onClick={props.buttonCounter}
                         >
                             -

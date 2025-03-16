@@ -16,19 +16,24 @@ export default function CreateNew() {
     const [questionsList, setQuestionsList] = useState<string[]>([]);
     const [answersList, setAnswersList] = useState<string[]>([]);
 
-    const upload = handleSubmit;
+    function trigger() {
+        const upload = handleSubmit;
 
-    if (typeof upload === "string") {
-        console.log(upload);
-        upload == null;
-    } else {
-        console.log("Flashcard created successfully");
-        // redirect("/redirecting");
+        if (typeof upload === "string") {
+            console.log(upload);
+            upload == null;
+        } else {
+            console.log("Flashcard created successfully", upload);
+            redirect("../redirecting");
+        }
     }
 
     return (
         <div className="min-h-screen boxBgLightGrey1 border-dashed border-2 border-[#252525d8] rounded-xl text-white m-14 p-6">
-            <form onSubmit={(e) => handleSubmit(e, title, description, privateFlashcards, questionsList, answersList)}>
+            <form onSubmit={(e) => {
+                handleSubmit(e, title, description, privateFlashcards, questionsList, answersList)
+                trigger();
+                }}>
                 <div className="flex flex-row items-center justify-between relative mb-6">
                     <a href="/"
                         className="top-3 flex flex-row items-center buttonBlue p-2 mb-8 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)]"
@@ -72,16 +77,6 @@ export default function CreateNew() {
                     setQuestionsList={setQuestionsList}
                     setAnswersList={setAnswersList}
                 />
-                <div className="flex flex-row justify-end mt-4 h-[41px]">
-                    {/* Trigger handleSubmit passed from parent */}
-                    <button
-                        type="submit"
-                        className="flex flex-row buttonGreen p-2 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)]"
-                    >
-                        Create
-                        <Check size={25} color="#fff" className="rounded-full bg-[#21eb53] p-[2px]" />
-                    </button>
-                </div>
             </form>
         </div>
     );

@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Plus, Check } from "lucide-react";
 import { FlashcardItem } from "./flashcardItem";
 import { useState } from "react";
 import { NewCardCounter } from "./newCard&Counter";
@@ -100,7 +100,6 @@ export default function FlashcardEntry({
                     )}
                 </div>
             ))}
-
             <div className="flex flex-row justify-center mt-4">
                 <NewCardCounter
                     addCounter={addCounter}
@@ -108,6 +107,16 @@ export default function FlashcardEntry({
                     buttonCounter={buttonCounter}
                     addItem={addItem}
                 />
+                <div className="flex flex-row justify-end mt-4 h-[41px]">
+                    {/* Trigger handleSubmit passed from parent */}
+                    <button
+                        type="submit"
+                        className="flex flex-row buttonGreen p-2 rounded-full text-white ease-in-out duration-200 gap-2 absolute right-[80px] shadow-[0px_1px_6px_rgba(25,25,25,1)]"
+                    >
+                        Create
+                        <Check size={25} color="#fff" className="rounded-full bg-[#21eb53] p-[2px]" />
+                    </button>
+                </div>
             </div>
         </div>
     );
