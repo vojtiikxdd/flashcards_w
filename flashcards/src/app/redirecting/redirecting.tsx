@@ -22,11 +22,20 @@ export default function Redirecting() {
     }, []);
 
     return (
-        <main className="min-h-screen boxBgLightGrey1 border-dashed border-2 border-[#252525d8] rounded-xl text-white m-14 p-6">
-            <p>
-                redirecting to home in {timeLeft}   
-                <Check size={25} className="rounded-full bg-[#01dc64]" />
-            </p>
+        <main className="absolute h-[300px] w-[580px] p-12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 boxBgLightGrey1 border-dashed border-2 border-[#252525d8] rounded-xl text-white flex flex-col items-center justify-between">
+            <div className="text-center text-2xl flex flex-col gap-1">
+                <div className="flex flex-row items-center gap-2 justify-center">
+                    Creating flashcards <b>successful</b>
+                    <Check size={25} color="#01dc64" />
+                </div>
+                Redirecting to home in {timeLeft}s
+            </div>
+            <a
+                href="/"
+                className="text-[#5dbcfc] hover:no-underline underline text-center hover:text-[#c5e7fc] ease-in-out duration-200"
+            >
+                skip
+            </a>
         </main>
     );
 }

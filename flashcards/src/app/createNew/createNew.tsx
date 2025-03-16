@@ -24,7 +24,7 @@ export default function CreateNew() {
             upload == null;
         } else {
             console.log("Flashcard created successfully", upload);
-            //redirect("../redirecting");
+            redirect("../redirecting");
         }
     }
 
@@ -43,6 +43,7 @@ export default function CreateNew() {
                     </a>
                     <h1 className="text-2xl mx-auto my-4 font-semibold">Create new flashcards</h1>
                 </div>
+
                 <div className="flex flex-col items-center p-4 bg-[#202020] rounded-xl w-full">
                     <div className="inputBgLightGrey p-1 rounded-lg items-start w-full">
                         <Input id="title" label="Title" bgcolor="inputBgLightGrey"
@@ -61,6 +62,7 @@ export default function CreateNew() {
                         />
                     </div>
                 </div>
+
                 <div className="flex flex-row justify-end m-4 h-6">
                     <Selection
                         defaultVal={privateFlashcards}
@@ -71,6 +73,7 @@ export default function CreateNew() {
                         secondColors="selection2Blue"
                     />
                 </div>
+
                 <FlashcardEntry
                     bgColor="inputBgLightGrey"
                     txtareaBgCol="txtareaBgLightGrey"

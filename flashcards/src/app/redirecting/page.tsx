@@ -6,7 +6,7 @@ export default async function LoginPageWrapper() {
     const client = await createClient();
     const user = await client.auth.getUser();
 
-    if (user.data.user) {
+    if (!user.data.user) {
         redirect("/");
     }
 
