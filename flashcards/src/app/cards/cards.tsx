@@ -41,51 +41,54 @@ export default function Cards() {
     };
 
     return (
-        <main className="flex flex-col absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[55rem] h-[30rem] justify-between">
-            <div className="flex flex-row h-auto justify-between items-center">
-                <a href="/"
-                    className="flex flex-row items-center buttonBlue my-auto  p-2 rounded-full text-white ease-in-out duration-200 gap-2 shadow-[0px_1px_6px_rgba(25,25,25,1)]"
-                >
-                    <ArrowLeft size={25} className="rounded-full bg-[#59b3f0]" />
-                    Go back!
-                </a>
-                <p className="text-white">Flashcards</p>
-            </div>
-            <Carousel
-                className="text-white text-center flex mx-auto items-center border-2 border-[#ffffff60] border-dashed rounded-3xl w-[45rem] h-[26rem]"
+        <main className="">
+            <a href="/"
+                className="flex flex-row w-[126px] absolute top-[100px] left-40 items-center buttonBlue my-auto p-2 rounded-full text-white ease-in-out duration-200 gap-2 shadow-[0px_1px_6px_rgba(25,25,25,1)]"
             >
-                <CarouselContent
-                    onTouchStart={handleCarouselMove} // Pri dotyku na mobile
-                    onMouseDown={handleCarouselMove}  // Pri stlačení myši na počítači
-                >
-                    {numbers.map((num, index) => (
-                        <CarouselItem key={index} className="carousel-item w-full p-4">
-                            <ReactCardFlip isFlipped={!!flipStates[index]} flipDirection="vertical">
-                                {/* Predná strana */}
-                                <p className="text-lg w-full h-full whitespace-normal break-words p-20 cursor-pointer"
-                                    onClick={() => handleFlip(index)}
-                                >
-                                    {questions[index]}
-                                </p>
+                <ArrowLeft size={25} className="rounded-full bg-[#59b3f0]" />
+                Go back!
+            </a>
+            <div className="flex flex-col absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[55rem] h-[32rem] justify-between">
+                <div className="flex flex-col h-auto justify-start items-cente">
 
-                                {/* Zadná strana */}
-                                <p className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
-                                    onClick={() => handleFlip(index)}
-                                    onMouseDown={() => handleLongPressStart(index)}
-                                >
-                                    {answers[index]}
-                                </p>
-                            </ReactCardFlip>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-
-                {/* Obalenie tlačidiel do divu, aby fungovali správne */}
-                <div onClick={handleCarouselMove}>
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <h1 className="text-white font-bold text-2xl pl-6 pt-2">Flashcards - heading</h1>
                 </div>
-            </Carousel>
+                <Carousel
+                    className="text-white text-center flex mx-auto items-center border-2 border-[#ffffff60] border-dashed rounded-3xl w-[45rem] h-[26rem]"
+                >
+                    <CarouselContent
+                        onTouchStart={handleCarouselMove} // Pri dotyku na mobile
+                        onMouseDown={handleCarouselMove}  // Pri stlačení myši na počítači
+                    >
+                        {numbers.map((num, index) => (
+                            <CarouselItem key={index} className="carousel-item w-full p-4">
+                                <ReactCardFlip isFlipped={!!flipStates[index]} flipDirection="vertical">
+                                    {/* Predná strana */}
+                                    <p className="text-lg w-full h-full whitespace-normal break-words p-20 cursor-pointer"
+                                        onClick={() => handleFlip(index)}
+                                    >
+                                        {questions[index]}
+                                    </p>
+
+                                    {/* Zadná strana */}
+                                    <p className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
+                                        onClick={() => handleFlip(index)}
+                                        onMouseDown={() => handleLongPressStart(index)}
+                                    >
+                                        {answers[index]}
+                                    </p>
+                                </ReactCardFlip>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+
+                    {/* Obalenie tlačidiel do divu, aby fungovali správne */}
+                    <div onClick={handleCarouselMove}>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </div>
+                </Carousel>
+            </div>
         </main>
     );
 }
