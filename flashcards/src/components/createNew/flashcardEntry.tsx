@@ -68,7 +68,7 @@ export default function FlashcardEntry({
         <div>
             {flashcards.map((entryIndex) => (
                 <div className="flex flex-col gap-2" key={`${entryIndex}`}>
-                    <div className={`${bgColor} p-4 rounded-lg mt-4`}>
+                    <div className={`${bgColor} p-4 rounded-lg mb-4`}>
                         <FlashcardItem
                             onDelete={() => deleteItem(entryIndex)}
                             entryIndex={entryIndex}

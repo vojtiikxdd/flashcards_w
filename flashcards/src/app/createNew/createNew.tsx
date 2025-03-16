@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, Check } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 import FlashcardEntry from "@/components/createNew/flashcardEntry";
 import { Input } from "@/components/createNew/inputCreateNew";
@@ -24,7 +24,7 @@ export default function CreateNew() {
             upload == null;
         } else {
             console.log("Flashcard created successfully", upload);
-            redirect("../redirecting");
+            //redirect("../redirecting");
         }
     }
 
