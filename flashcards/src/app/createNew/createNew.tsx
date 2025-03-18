@@ -24,7 +24,7 @@ export default function CreateNew() {
                 if (res !== undefined) {
                     alert(res);
                 } else {
-                    alert("Successfully created!");
+                    redirect("/redirecting");
                 }
             }}>
                 <div className="flex flex-row items-center justify-between relative mb-6">

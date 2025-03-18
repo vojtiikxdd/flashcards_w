@@ -28,13 +28,13 @@ export default function Home({ user }: { user: User | string }) {
                         <FlashcardBoxHolder />
                     </div>
                     <div className="flex flex-row my-8 ml-12 self-start ">
-                        <Link href={"/createNew"} className="flex gap-1 flex-row items-center buttonBlue text-[#fff] px-2 py-2 rounded-3xl duration-200 transition-all ease-in-out shadow-[0px_1px_6px_rgba(25,25,25,1)]">
+                        <Link href={"/createNew"} className="select-none flex gap-1 flex-row items-center buttonBlue text-[#fff] px-2 py-2 rounded-3xl duration-200 transition-all ease-in-out shadow-[0px_1px_6px_rgba(25,25,25,1)]">
                             <Plus size={25} className="rounded-full bg-[#59b3f0]" />
                             Create new!
                         </Link>
 
                         {/*need to make this a Link so its good to redirect */}
-                        <div className="cursor-not-allowed flex flex-row items-center buttonYellow text-[#fff] px-2 py-1 gap-1 rounded-3xl duration-200 transition-all ease-in-out ml-4 shadow-[0px_1px_6px_rgba(25,25,25,1)]">
+                        <div className="cursor-not-allowed flex flex-row select-none items-center buttonYellow text-[#fff] px-2 py-1 gap-1 rounded-3xl duration-200 transition-all ease-in-out ml-4 shadow-[0px_1px_6px_rgba(25,25,25,1)]">
                             My Flashcards
                             <ArrowRight size={25} className="rounded-full bg-[#ffcb48]" />
                         </div>
