@@ -3,6 +3,7 @@ import { Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { Copyright, User } from "lucide-react";
 import { Search } from "lucide-react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import Link from "next/link";
 import Image from "next/image";
@@ -48,7 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                                 </div>
                             </label>
                         </form>
-                         <ul className="flex flex-row gap-x-2 justify-center items-center">
+                        <ul className="flex flex-row gap-x-2 justify-center items-center">
                             {/*<li>
                                 <Link href="/home" className="font-light italic text-xl hover:font-medium my-auto text-white">
                                     other
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                                     <User size={40} color="white" />
                                 </Link>
                             </li>
-                        </ul> 
+                        </ul>
                     </div>
                 </nav>
 
@@ -72,12 +73,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                     {children}
                 </div>
 
-        <footer className="bg-gradient-to-t from-[#131313] to-[#181818] justify-center flex flex-row items-center text-xl self-end w-full pb-12 pt-8 border-t-2 border-dashed">
-          <p className="text-white">Bylo nás 5ět</p>
-          <Copyright className="ml-2" color="white" />
-        </footer>
-      </body>
-    </html>
-  );
+                <footer className="bg-gradient-to-t from-[#131313] to-[#181818] justify-center flex flex-row items-center text-xl self-end w-full pb-12 pt-8 border-t-2 border-dashed">
+                    <p className="text-white">Bylo nás 5ět</p>
+                    <Copyright className="ml-2" color="white" />
+                </footer>
+            </body>
+        </html>
+    );
 }
 
