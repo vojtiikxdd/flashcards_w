@@ -84,8 +84,12 @@ input:-webkit-autofill:active{
 }
 
 .buttonBlue:hover {
-  background-color: #0874bd;
+  background-color: #096fb3;
 }	
+
+.buttonBlue:focus {
+  background-color: #096fb3;
+}
 
 .buttonYellow {
   background-color: #f6b109;
@@ -95,11 +99,19 @@ input:-webkit-autofill:active{
   background-color: #dd9e00;
 }
 
+.buttonYellow:focus {
+  background-color: #dd9e00;
+}
+
 .buttonGreen {
   background-color: #1de248f3;
 }
 
 .buttonGreen:hover {
+  background-color: #10bd36;
+}
+
+.buttonGreen:focus {
   background-color: #10bd36;
 }
 
@@ -219,4 +231,13 @@ input:-webkit-autofill:active{
   body {
     @apply bg-background text-foreground;
     }
+}
+
+.pcLayout {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
 }

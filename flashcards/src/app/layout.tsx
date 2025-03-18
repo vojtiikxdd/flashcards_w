@@ -33,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-[#121212] shadow[0_0px_100px_rgba(255,255,255,0.5)]`}>
                 {/*<div className="pointer-events-none absolute inset-0 bg-[#25153d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>*/}
                 <nav className={` ${poppins.className} p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-gradient-to-b from-[#131313] to-[#181818] font-bold`}>
-                    <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl">
+                    <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl focus:outline-none rounded-sm ease-in-out duration-200">
                         <Image src="/newLogo-remade.png" alt="idk" width={70} height={50} />
                         <h1 className="font-[Poppins] text-4xl text-white">FlashCards</h1>
                     </Link>
