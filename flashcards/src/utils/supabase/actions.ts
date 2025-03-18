@@ -143,9 +143,7 @@ export async function getFlashcardsWithId(id: string): Promise<{
   }[]
 } | undefined> {
   const supabase = await createClient();
-
   const user =  await supabase.auth.getUser();
-
   if (user.error) return undefined;
 
   const res = await supabase.from("flashcard").select("*").eq("id", id).single().then(async (res) => {
@@ -159,4 +157,22 @@ export async function getFlashcardsWithId(id: string): Promise<{
   });
 
   return res;
+}
+
+export async function getFlashcardOfUser(): Promise<{
+  id: string;
+  f_name: string;
+}[] | undefined> {
+  const supabase = await createClient();
+
+  const user =  await supabase.auth.getUser();
+
+  if (user.error) return undefined;
+  const res = await supabase.from("flashcard").select("id, f_name").eq("user_id", user.data.user.id);
+
+  if (res.error) return undefined;
+  return res.data as unknown as {
+    id: string;
+    f_name: string;
+  }[];
 }
