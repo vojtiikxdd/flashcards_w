@@ -10,64 +10,51 @@ import { User } from '../schemas'
 //it takes in the title, description, privateFlashcards, questionsList, and answersList
 //it returns a string or void
 export async function handleSubmit(
-  e: React.FormEvent<HTMLFormElement>, // Add event parameter
   title: string,
   description: string,
   privateFlashcards: boolean,
   questionsList: string[],
   answersList: string[]
-): Promise<string | void> {
-
+): Promise<string | undefined> {
   const supabase = await createClient();
 
   if (!title.trim() || !description.trim() || questionsList.length === 0 || answersList.length === 0) {
     return "Title, description, and at least one question-answer pair are required.";
   }
 
-  try {
-    const user = await supabase.auth.getUser(); // Get the authenticated user
-    console.log("User ID:", user.data.user?.id);
-    console.log(user.error);
+  const user = await supabase.auth.getUser();
 
-    if (!user.data.user) {
-      return "User not authenticated";
-    }
+  if (user.error) return user.error.message;
 
-    // Insert into `flashcard` table
-    const { data: flashcardData, error: flashcardError } = await supabase
-      .from("flashcard")
-      .insert([
-        {
-          user_id: user.data.user.id,
-          f_name: title,
-          description: description,
-          public: !privateFlashcards,
-          created_at: new Date(),
-        },
-      ])
-      .select()
-      .single();
+  let res = await supabase.from("flashcard").insert({
+    user_id: user.data.user.id,
+    f_name: title,
+    description: description,
+    private: privateFlashcards,
+  }).select().single();
 
-    if (flashcardError) {
-      return flashcardError.message;
-    }
-
-    // Insert related questions and answers into `flashcard_content` table
-    const flashcardId = flashcardData.id;
-    const flashcardEntries = questionsList.map((question, index) => ({
-      f_id: flashcardId,
-      question: question,
-      answer: answersList[index] || "",
-    }));
-
-    const { error: contentError } = await supabase.from("flashcard_content").insert(flashcardEntries);
-
-    if (contentError) {
-      return contentError.message;
-    }
-  } catch (error) {
-    return (error as Error).message;
+  if (res.error) {
+    return res.error.message;
   }
+  
+
+  const setId = res.data.id;
+
+  const questions = questionsList.map((question, index) => {
+    return {
+      f_id: setId,
+      question: question,
+      answer: answersList[index],
+    };
+  });
+
+  const res2 = await supabase.from("flashcard_content").insert(questions);
+
+  if (res2.error) {
+    return res2.error.message;
+  }
+
+  return undefined;
 }
 
 export async function login({

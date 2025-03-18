@@ -16,24 +16,17 @@ export default function CreateNew() {
     const [questionsList, setQuestionsList] = useState<string[]>([]);
     const [answersList, setAnswersList] = useState<string[]>([]);
 
-    function trigger() {
-        const upload = handleSubmit;
-
-        if (typeof upload === "string") {
-            console.log(upload);
-            upload == null;
-        } else {
-            console.log("Flashcard created successfully", upload);
-            redirect("../redirecting");
-        }
-    }
-
     return (
         <div className="min-h-screen boxBgLightGrey1 border-dashed border-2 border-[#252525d8] rounded-xl text-white m-14 p-6">
-            <form onSubmit={(e) => {
-                handleSubmit(e, title, description, privateFlashcards, questionsList, answersList)
-                trigger();
-                }}>
+            <form onSubmit={async (e) => {
+                e.preventDefault();
+                const res = await handleSubmit(title, description, privateFlashcards, questionsList, answersList);
+                if (res !== undefined) {
+                    alert(res);
+                } else {
+                    alert("Successfully created!");
+                }
+            }}>
                 <div className="flex flex-row items-center justify-between relative mb-6">
                     <a href="/"
                         className="top-3 flex flex-row items-center buttonBlue p-2 mb-8 rounded-full text-white ease-in-out duration-200 gap-2 absolute shadow-[0px_1px_6px_rgba(25,25,25,1)]"

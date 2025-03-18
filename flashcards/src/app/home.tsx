@@ -35,10 +35,12 @@ export default function Home({ user }: { user: User | string }) {
                             <Plus size={25} className="rounded-full bg-[#59b3f0]" />
                             Create new!
                         </Link>
-                        <Link href="/myFlashcards" className="flex flex-row items-center buttonYellow text-[#fff] px-2 py-1 gap-1 rounded-3xl duration-200 transition-all ease-in-out ml-4 shadow-[0px_1px_6px_rgba(25,25,25,1)]">
+
+                        {/*need to make this a Link so its good to redirect */}
+                        <div className="cursor-not-allowed flex flex-row items-center buttonYellow text-[#fff] px-2 py-1 gap-1 rounded-3xl duration-200 transition-all ease-in-out ml-4 shadow-[0px_1px_6px_rgba(25,25,25,1)]">
                             My Flashcards
                             <ArrowRight size={25} className="rounded-full bg-[#ffcb48]" />
-                        </Link>
+                        </div>
                     </div>
                 </div>
             ) : (
