@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft } from "lucide-react";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactCardFlip from "react-card-flip";
 import {
     Carousel,
@@ -12,7 +12,17 @@ import {
 } from "@/components/ui/carousel";
 import { SelectTraining, SelectTrainingHorizontal } from "@/components/cardsPreview/selectTraining";
 
-export default function Cards() {
+export default function Cards({ cards }: {
+    cards: {
+        user_id: string;
+        f_name: string;
+        description: string;
+        list: {
+            question: string;
+            answer: string;
+        }[]
+    }
+}) {
     const numbers = Array.from({ length: 10 }, (_, i) => i + 1);
     const answers = numbers.map((num) => `Odpověď ${num}`);
     const questions = numbers.map((num) => `Položka ${num}`);
@@ -57,7 +67,7 @@ export default function Cards() {
                 <div>
                     <div className="flex flex-col h-auto justify-start items-cente">
                         <h1 className="text-white font-bold text-2xl pl-6 py-3">
-                            Flashcards - heading
+                            {cards.f_name}
                         </h1>
                     </div>
                     <Carousel
@@ -95,7 +105,7 @@ export default function Cards() {
                             <CarouselNext />
                         </div>
                     </Carousel>
-                </div>    
+                </div>
             </div>
             {/* <SelectTraining /> */}
         </main>

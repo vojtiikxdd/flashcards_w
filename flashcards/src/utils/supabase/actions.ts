@@ -132,3 +132,31 @@ export async function signOut(): Promise<void> {
   revalidatePath('/', 'layout')
   redirect('/');
 }
+
+export async function getFlashcardsWithId(id: string): Promise<{
+  user_id: string;
+  f_name: string;
+  description: string;
+  list: {
+    question: string;
+    answer: string;
+  }[]
+} | undefined> {
+  const supabase = await createClient();
+
+  const user =  await supabase.auth.getUser();
+
+  if (user.error) return undefined;
+
+  const res = await supabase.from("flashcard").select("*").eq("id", id).single().then(async (res) => {
+    if (res.error) return undefined;
+    const questions = await supabase.from("flashcard_content").select("*").eq("f_id", id);
+    if (questions.error) return undefined;
+    return {
+      ...res.data,
+      list: questions.data
+    }
+  });
+
+  return res;
+}
