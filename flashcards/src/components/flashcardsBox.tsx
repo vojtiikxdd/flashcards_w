@@ -4,9 +4,12 @@ import { getFlashcardOfUser } from "@/utils/supabase/actions";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { setLastOpened } from "@/utils/supabase/actions";
+
+
 export function FlashcardsBox({ name, id }: { name: string; id: string; }) {
     return (
-        <Link href={`/cards/${id}`} className="flex w-[220px] h-[160px] bg-[#16111f] rounded-3xl border-2 border-solid border-[#686868] p-4 text-3xl font-bold text-[#fff] hover:border-[#969696] transition-colors ease-in-out duration-300 drop-shadow-sm hover:drop-shadow-white cursor-pointer">
+        <Link href={`/cards/${id}`} onClick={() => setLastOpened(id)} className="flex w-[220px] h-[160px] bg-[#16111f] rounded-3xl border-2 border-solid border-[#686868] p-4 text-3xl font-bold text-[#fff] hover:border-[#969696] transition-colors ease-in-out duration-300 drop-shadow-sm hover:drop-shadow-white cursor-pointer">
             {name}
         </Link>
     )
@@ -25,7 +28,11 @@ export function FlashcardBoxHolder() {
     return (
         <div className="flex flex-row flex-wrap ml-4">
             {fcs?.map((fc, index) => (
-                <FlashcardsBox key={index} name={fc.f_name} id={fc.id} />
+                <FlashcardsBox
+                    key={index}
+                    name={fc.f_name}
+                    id={fc.id}
+                />
             ))}
         </div>
     )

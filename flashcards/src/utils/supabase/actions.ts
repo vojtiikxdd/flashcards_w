@@ -163,6 +163,7 @@ export async function getFlashcardOfUser(): Promise<{
   id: string;
   f_name: string;
 }[] | undefined> {
+
   const supabase = await createClient();
 
   const user =  await supabase.auth.getUser();
@@ -176,3 +177,22 @@ export async function getFlashcardOfUser(): Promise<{
     f_name: string;
   }[];
 }
+
+export async function setLastOpened(id: string): Promise<string | undefined> {
+  const supabase = await createClient();
+  const { data: user, error: userError } = await supabase.auth.getUser();
+  
+  if (userError || !user?.user) return undefined;
+
+  const timestamp = new Date().toISOString(); // Ensure proper format
+
+  const { error } = await supabase
+    .from("flashcard")
+    .update({ last_opened_at: timestamp }) // Store in the correct format
+    .eq("id", id);
+
+  if (error) return undefined;
+
+  return timestamp; // Return the updated timestamp
+}
+
