@@ -85,14 +85,14 @@ export default function Cards({ cards }: {
                                 <CarouselItem key={index} className="flex carousel-item w-full h-full">
                                     <ReactCardFlip isFlipped={!!flipStates[index]} flipDirection="vertical" containerClassName="items-center justify-center">
                                         {/* Predná strana */}
-                                        <p className="text-lg flex justify-center items-center align-middle w-full h-full whitespace-normal break-words p-20 cursor-pointer"
+                                        <p className="text-lg flex justify-center items-center align-middle w-[720px] h-full whitespace-normal break-words p-20 cursor-pointer"
                                             onClick={() => handleFlip(index)}
                                         >
                                             {questions[index]}
                                         </p>
 
                                         {/* Zadná strana */}
-                                        <p className="text-lg w-full whitespace-normal break-words p-20 cursor-pointer"
+                                        <p className="text-lg flex justify-center items-center align-middle w-[720px] h-full whitespace-normal break-words p-20 cursor-pointer"
                                             onClick={() => handleFlip(index)}
                                             onMouseDown={() => handleLongPressStart(index)}
                                         >
