@@ -26,9 +26,17 @@ export function FlashcardBox() {
         return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
     }
 
+    const [isFull, setIsFull] = useState(false);
+    
+    useEffect(() => {
+        if (fcs?.length === 5) {
+            setIsFull(true);
+        }
+    }, [fcs]);
+
     return (
         <Carousel opts={{ loop: false, align: "start", slidesToScroll: 1 }} className="ml-8 flex flex-row gap-6 max-w-screen-xl">
-            <CarouselContent className={`flex flex-row gap-8`}>
+            <CarouselContent className={`flex flex-row ${isFull ? "gap-0" : "gap-6"}`}>
                 {fcs?.map((fc, index) => (
                     <CarouselItem key={index} className="basis-1/5 flex-shrink-0">
                         <Link href={`/cards/${fc.id}`} onClick={() => setLastOpened(fc.id)} className="flex flex-col w-[220px] h-[160px] gap-2 bg-[#1c1c1c] rounded-3xl border-2 border-dashed border-[#686868] p-4 hover:border-[#969696] transition-colors ease-in-out duration-300 drop-shadow-sm hover:drop-shadow-white cursor-pointer">
@@ -40,7 +48,6 @@ export function FlashcardBox() {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-
             <CarouselPrevious className="-left-10" />
             <CarouselNext className="-right-1" />
         </Carousel>
