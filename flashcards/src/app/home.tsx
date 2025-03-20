@@ -3,7 +3,7 @@ import { User } from "@/utils/schemas";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { ArrowRight } from "lucide-react";
-import { FlashcardBoxHolder, FlashcardsBox } from "@/components/flashcardsBox";
+import { FlashcardBox } from "@/components/flashcardsBox";
 import { TypewriterEff } from "@/components/typewriteEffHomapage";
 import { useEffect } from "react";
 
@@ -25,7 +25,7 @@ export default function Home({ user }: { user: User | string }) {
                     </p>
                     <div className="self-start justify-between ml-8">
                         <p className="font-bold text-xl mb-4 text-white RecentFlshcrdBoxLabel">Recent flashcards</p>
-                        <FlashcardBoxHolder />
+                        <FlashcardBox />
                     </div>
                     <div className="flex flex-row my-8 ml-12 self-start ">
                         <Link href={"/createNew"} className="select-none flex gap-1 flex-row items-center buttonBlue text-[#fff] px-2 py-2 rounded-3xl duration-200 transition-all ease-in-out shadow-[0px_1px_6px_rgba(25,25,25,1)]">

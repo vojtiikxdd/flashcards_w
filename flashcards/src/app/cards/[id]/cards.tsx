@@ -105,7 +105,7 @@ export default function Cards({ cards }: {
 
                         {/* Obalenie tlačidiel do divu, aby fungovali správne */}
                         <div onClick={handleCarouselMove}>
-                            <CarouselPrevious />
+                            <CarouselPrevious className="-left-12" />
                             <CarouselNext />
                         </div>
                     </Carousel>
