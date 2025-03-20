@@ -28,7 +28,7 @@ export function FlashcardBox() {
 
     return (
         <Carousel opts={{ loop: false, align: "start", slidesToScroll: 1 }} className="ml-8 flex flex-row gap-6 max-w-screen-xl">
-            <CarouselContent>
+            <CarouselContent className="flex flex-row gap-6">
                 {fcs?.map((fc, index) => (
                     <CarouselItem key={index} className="basis-1/5 flex-shrink-0">
                         <Link href={`/cards/${fc.id}`} onClick={() => setLastOpened(fc.id)} className="flex flex-col w-[220px] h-[160px] gap-2 bg-[#1c1c1c] rounded-3xl border-2 border-dashed border-[#686868] p-4 hover:border-[#969696] transition-colors ease-in-out duration-300 drop-shadow-sm hover:drop-shadow-white cursor-pointer">
