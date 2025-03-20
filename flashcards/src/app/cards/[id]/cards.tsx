@@ -82,17 +82,24 @@ export default function Cards({ cards }: {
                             className="flex w-full h-full"
                         >
                             {numbers.map((index) => (
-                                <CarouselItem key={index} className="flex carousel-item w-full h-full">
-                                    <ReactCardFlip isFlipped={!!flipStates[index]} flipDirection="vertical" containerClassName="items-center justify-center">
+                                <CarouselItem
+                                    key={index}
+                                    className="flex carousel-item w-full h-full"
+                                >
+                                    <ReactCardFlip
+                                        isFlipped={!!flipStates[index]}
+                                        flipDirection="vertical"
+                                        containerClassName="items-center justify-center"
+                                    >
                                         {/* Predná strana */}
-                                        <p className={`text-lg flex flex-wrap justify-center items-center align-middle max-w-[720px] min-w-[720px] h-full whitespace-normal break-words p-20 cursor-pointer`}
+                                        <p className={`text-lg flex flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
                                             onClick={() => handleFlip(index)}
                                         >
                                             {questions[index]}
                                         </p>
 
                                         {/* Zadná strana */}
-                                        <p className="text-lg flex flex-wrap justify-center items-center align-middle max-w-[720px] h-full whitespace-normal break-words p-20 cursor-pointer"
+                                        <p className={`text-lg flex flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal break-all ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
                                             onClick={() => handleFlip(index)}
                                             onMouseDown={() => handleLongPressStart(index)}
                                         >

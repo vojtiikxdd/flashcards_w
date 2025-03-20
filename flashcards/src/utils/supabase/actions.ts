@@ -19,12 +19,18 @@ export async function handleSubmit(
   const supabase = await createClient();
 
   if (!title.trim() || !description.trim() || questionsList.length === 0 || answersList.length === 0) {
-    return "Title, description, and at least one question-answer pair are required.";
+    return "Title, description, and at least four question-answer pair are required.";
   }
 
   const user = await supabase.auth.getUser();
 
   if (user.error) return user.error.message;
+
+  questionsList.map((question, index) => {
+    if(question.length > 672 || answersList[index].length > 672) {
+      return "Question or answer " + index + " is too long.";
+    }
+  });
 
   let res = await supabase.from("flashcard").insert({
     user_id: user.data.user.id,
@@ -41,6 +47,9 @@ export async function handleSubmit(
   const setId = res.data.id;
 
   const questions = questionsList.map((question, index) => {
+    question = question.trim();
+    answersList[index] = answersList[index].trim();
+    
     return {
       f_id: setId,
       question: question,
