@@ -58,6 +58,7 @@ export default function Login() {
                     error={error}
                     showingFullError={showingFullError}
                     setShowingFullError={setShowingFullError}
+                    maxTextLength={25}
                 />
             )}
 

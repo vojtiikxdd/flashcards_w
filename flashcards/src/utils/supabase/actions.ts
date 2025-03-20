@@ -27,7 +27,7 @@ export async function handleSubmit(
   if (user.error) return user.error.message;
 
   questionsList.map((question, index) => {
-    if(question.length > 672 || answersList[index].length > 672) {
+    if(question?.length > 672 || answersList[index]?.length > 672) {
       return "Question or answer " + index + " is too long.";
     }
   });
@@ -46,10 +46,7 @@ export async function handleSubmit(
 
   const setId = res.data.id;
 
-  const questions = questionsList.map((question, index) => {
-    question = question.trim();
-    answersList[index] = answersList[index].trim();
-    
+  const questions = questionsList.map((question, index) => {   
     return {
       f_id: setId,
       question: question,
@@ -205,5 +202,26 @@ export async function setLastOpened(id: string): Promise<string | undefined> {
   if (error) return undefined;
 
   return timestamp; // Return the updated timestamp
+}
+
+export async function getNumOfItems(): Promise<number | undefined> {
+ 
+    const supabase = await createClient();
+  
+    const user =  await supabase.auth.getUser();
+  
+    if (user.error) return undefined;
+
+    const ress = await supabase.from("flashcard").select("id").eq("user_id", user.data.user.id);
+    if (ress.error) return undefined;
+
+    const { data, count, error } = await supabase
+      .from("your_table_name")
+      .select("*", { count: "exact" })
+      .eq("f_id", 14);
+
+    if (error || typeof count === null) return undefined;
+
+    return count !== null ? count : undefined;
 }
 

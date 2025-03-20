@@ -11,6 +11,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { SelectTraining, SelectTrainingHorizontal } from "@/components/cardsPreview/selectTraining";
+import { getNumOfItems } from "@/utils/supabase/actions";
 
 export default function Cards({ cards }: {
     cards: {
@@ -23,6 +24,16 @@ export default function Cards({ cards }: {
         }[]
     }
 }) {
+    const [num, setNum] = useState<number>(0);
+
+    useEffect(() => {
+        (async () => {
+            const num = await getNumOfItems();
+            setNum(num as number);
+        })();
+    }, []);
+    ;
+
     const numbers = Array.from({ length: 10 }, (_, i) => i + 1);
     const answers = cards.list.map((item) => item.answer);
     const questions = cards.list.map((item) => item.question);
@@ -92,14 +103,14 @@ export default function Cards({ cards }: {
                                         containerClassName="items-center justify-center"
                                     >
                                         {/* Predná strana */}
-                                        <p className={`text-lg flex flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
+                                        <p className={`text-lg flex text-white flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
                                             onClick={() => handleFlip(index)}
                                         >
                                             {questions[index]}
                                         </p>
 
                                         {/* Zadná strana */}
-                                        <p className={`text-lg flex flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal break-all ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
+                                        <p className={`text-lg text-white flex flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal break-all ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
                                             onClick={() => handleFlip(index)}
                                             onMouseDown={() => handleLongPressStart(index)}
                                         >
