@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Trash2, FilePenLine } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
 import ReactCardFlip from "react-card-flip";
 import {
@@ -25,7 +25,7 @@ export default function Cards({ cards }: {
 }) {
     const answers = cards.list.map((item) => item.answer);
     const questions = cards.list.map((item) => item.question);
-    const numbers = questions.map((_, index) => index + 1).slice(0, -1  );
+    const numbers = questions.map((_, index) => index + 1).slice(0, -1);
 
     // Stav bude objekt, kde kľúč je index karty a hodnota je či je otočená
     const [flipStates, setFlipStates] = useState<{ [key: number]: boolean }>({});
@@ -65,13 +65,24 @@ export default function Cards({ cards }: {
             <div className="flex flex-row w-[84%] h-[32rem] mt-4 align-middle justify-center gap-[68px]">
                 <SelectTrainingHorizontal />
                 <div>
-                    <div className="flex flex-col h-auto justify-start items-cente">
-                        <h1 className="text-white font-bold text-2xl pl-4 pt-3">
-                            {cards.f_name}
-                        </h1>
-                        <p className="text-[#a9a9a9] pl-6 pb-3">
-                            {cards.description}
-                        </p>
+                    <div className="flex flex-row w-full justify-between items-center">
+                        <div className="flex flex-col h-auto justify-start items-cente">
+                            <h1 className="text-white font-bold text-2xl pl-4 pt-3">
+                                {cards.f_name}
+                            </h1>
+                            <p className="text-[#a9a9a9] pl-6 pb-3">
+                                {cards.description}
+                            </p>
+                        </div>
+                        <div className="flex flex-row w-auto justify-end items-center gap-4 mr-2">
+                            <Trash2
+                                style={{ color: "white", transition: "color 0.2s" }}
+                                onMouseEnter={(e) => e.currentTarget.style.color = "#f60a09"}
+                                onMouseLeave={(e) => e.currentTarget.style.color = "white"}
+                                size={30}
+                            />
+                            <FilePenLine color="white" size={30} />
+                        </div>
                     </div>
                     <Carousel
                         className="text-white text-center flex mx-auto items-center justify-center border-2 border-[#ffffff60] border-dashed rounded-3xl w-[45rem] h-[26rem] bg-[#121212] shadow-[0px_1px_6px_rgba(25,25,25,1)]"
