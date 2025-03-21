@@ -27,7 +27,7 @@ export function FlashcardBox() {
     }
 
     const [isFull, setIsFull] = useState(false);
-    
+
     useEffect(() => {
         if (fcs?.length === 5) {
             setIsFull(true);
