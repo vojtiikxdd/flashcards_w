@@ -50,17 +50,26 @@ export default function Home({ user }: { user: User | string }) {
                     <div className="flex flex-col w-full mx-auto justify-center items-center">
                         {dataLoaded ? (
                             <div className="self-start justify-between ml-8">
-                                <p className="font-bold text-xl mb-4 ml-2 text-white border-b border-1 border-[#686868]">Recent flashcards</p>
+                                <p className="font-bold text-xl mb-4 ml-2 text-white border-b border-1 border-[#686868]">
+                                    Recent flashcards
+                                </p>
                                 <FlashcardBox />
                             </div>
                         ) : (
                             <div className="flex flex-col items-center self-middle justify-center mt-10 border-l-2 border-solid border-[#686868] pl-8">
-                                <p className="text-white text-2xl">Seems like you haven't <span className="bg-clip-text from-[#25adda] to-[#0165e9] bg-gradient-to-r text-transparent font-bold">created</span> any Flashcards, wanna try it?</p>
+                                <p className="text-white text-2xl">
+                                    Seems like you haven't 
+                                    <span className="bg-clip-text from-[#25adda] to-[#0165e9] bg-gradient-to-r text-transparent font-bold">
+                                        created
+                                    </span>
+                                    any Flashcards, wanna try it?
+                                </p>
                                 <div className="flex flex-row justify-center items-center mt-4 ">
                                     <ChevronRight color="white" />
-                                    <Link href={"/createNew"} className="text-white text-3xl font-bold  ease-in-out duration-300 hover:text-[#c1fff5]">Create new!</Link>
+                                    <Link href={"/createNew"} className="text-white text-3xl font-bold  ease-in-out duration-300 hover:text-[#c1fff5]">
+                                        Create new!
+                                    </Link>
                                 </div>
-
                             </div>
                         )}
                         {dataLoaded &&
@@ -76,7 +85,6 @@ export default function Home({ user }: { user: User | string }) {
                                     My Flashcards
                                     <ArrowRight size={25} className="rounded-full bg-[#ffcb48]" />
                                 </div>
-
                             </div>
                         }
                     </div>
