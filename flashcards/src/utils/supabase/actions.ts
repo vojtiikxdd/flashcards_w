@@ -203,25 +203,3 @@ export async function setLastOpened(id: string): Promise<string | undefined> {
 
   return timestamp; // Return the updated timestamp
 }
-
-export async function getNumOfItems(): Promise<number | undefined> {
- 
-    const supabase = await createClient();
-  
-    const user =  await supabase.auth.getUser();
-  
-    if (user.error) return undefined;
-
-    const ress = await supabase.from("flashcard").select("id").eq("user_id", user.data.user.id);
-    if (ress.error) return undefined;
-
-    const { data, count, error } = await supabase
-      .from("your_table_name")
-      .select("*", { count: "exact" })
-      .eq("f_id", 14);
-
-    if (error || typeof count === null) return undefined;
-
-    return count !== null ? count : undefined;
-}
-

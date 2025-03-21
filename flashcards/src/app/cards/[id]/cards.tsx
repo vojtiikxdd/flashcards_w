@@ -11,7 +11,6 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { SelectTraining, SelectTrainingHorizontal } from "@/components/cardsPreview/selectTraining";
-import { getNumOfItems } from "@/utils/supabase/actions";
 
 export default function Cards({ cards }: {
     cards: {
@@ -24,16 +23,6 @@ export default function Cards({ cards }: {
         }[]
     }
 }) {
-    const [num, setNum] = useState<number>(0);
-
-    useEffect(() => {
-        (async () => {
-            const num = await getNumOfItems();
-            setNum(num as number);
-        })();
-    }, []);
-    ;
-
     const answers = cards.list.map((item) => item.answer);
     const questions = cards.list.map((item) => item.question);
     const numbers = questions.map((_, index) => index + 1).slice(0, -1  );
