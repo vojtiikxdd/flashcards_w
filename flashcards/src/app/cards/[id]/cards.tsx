@@ -34,9 +34,9 @@ export default function Cards({ cards }: {
     }, []);
     ;
 
-    const numbers = Array.from({ length: 10 }, (_, i) => i + 1);
     const answers = cards.list.map((item) => item.answer);
     const questions = cards.list.map((item) => item.question);
+    const numbers = questions.map((_, index) => index + 1).slice(0, -1  );
 
     // Stav bude objekt, kde kľúč je index karty a hodnota je či je otočená
     const [flipStates, setFlipStates] = useState<{ [key: number]: boolean }>({});
