@@ -16,26 +16,37 @@ export default function Home({ user }: { user: User | string }) {
     const [dataLoaded, setDataLoaded] = useState(false);
 
     useEffect(() => {
-            (async () => {
-                const res = await getFlashcardOfUser();
-                setDataLoaded(res !== undefined);
-            })();
-        }, []);
+        (async () => {
+            const res = await getFlashcardOfUser();
+            console.log(res);
+
+            setDataLoaded(res !== undefined && res.length > 0);
+        })();
+    }, []);
 
     return (
         <main className="flex flex-1 flex-col">
             {session ? (
                 <div className="flex flex-col w-full m-auto justify-center items-center">
-                    <p className="text-[#fff] text-4xl font-medium relative my-20">
-                        Welcome back, {" "}
-                        <span className="bg-clip-text from-[#2592da] to-[#dc10e7] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">
-                            {(user as User).username}
-                        </span>
-                        !
-                        <br />
-                        Wanna study sum?
-                    </p>
-
+                    {dataLoaded ? (
+                        <p className="text-[#fff] text-4xl font-medium relative my-20">
+                            Welcome back, {" "}
+                            <span className="bg-clip-text from-[#2592da] to-[#dc10e7] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">
+                                {(user as User).username}
+                            </span>
+                            !
+                            <br />
+                            Wanna study sum?
+                        </p>
+                    ) : (
+                        <p className="text-[#fff] text-4xl font-medium relative my-20">
+                            Hey there, {" "}
+                            <span className="bg-clip-text from-[#2592da] to-[#dc10e7] bg-gradient-to-r text-transparent font-bold duration-200 transition-all ease-in-out">
+                                {(user as User).username}
+                            </span>
+                            !
+                        </p >
+                    )}
                     <div className="flex flex-col w-full mx-auto justify-center items-center">
                         {dataLoaded ? (
                             <div className="self-start justify-between ml-8">
@@ -60,7 +71,7 @@ export default function Home({ user }: { user: User | string }) {
                                 </Link>
 
                                 {/*need to make this a Link so its good to redirect */}
-                                
+
                                 <div className="cursor-not-allowed flex flex-row select-none items-center buttonYellow text-[#fff] px-2 py-1 gap-1 rounded-3xl duration-200 transition-all ease-in-out ml-4 shadow-[0px_1px_6px_rgba(25,25,25,1)]">
                                     My Flashcards
                                     <ArrowRight size={25} className="rounded-full bg-[#ffcb48]" />
@@ -79,8 +90,7 @@ export default function Home({ user }: { user: User | string }) {
                     </p>
                     <TypewriterEff />
                 </div>
-            )
-            }
+            )}
         </main >
     )
 }
