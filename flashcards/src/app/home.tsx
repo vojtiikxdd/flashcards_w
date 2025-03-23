@@ -57,7 +57,7 @@ export default function Home({ user }: { user: User | string }) {
                             </div>
                         ) : (
                             <div className="flex flex-col items-center self-middle justify-center mt-10 border-l-2 border-solid border-[#686868] pl-8">
-                                <p className="text-white text-2xl">
+                                <p className="text-white text-2xl flex gap-3">
                                     Seems like you haven't 
                                     <span className="bg-clip-text from-[#25adda] to-[#0165e9] bg-gradient-to-r text-transparent font-bold">
                                         created
@@ -80,7 +80,6 @@ export default function Home({ user }: { user: User | string }) {
                                 </Link>
 
                                 {/*need to make this a Link so its good to redirect */}
-
                                 <div className="cursor-not-allowed flex flex-row select-none items-center buttonYellow text-[#fff] px-2 py-1 gap-1 rounded-3xl duration-200 transition-all ease-in-out ml-4 shadow-[0px_1px_6px_rgba(25,25,25,1)]">
                                     My Flashcards
                                     <ArrowRight size={25} className="rounded-full bg-[#ffcb48]" />

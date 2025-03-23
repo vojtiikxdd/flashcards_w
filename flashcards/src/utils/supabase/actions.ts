@@ -203,3 +203,19 @@ export async function setLastOpened(id: string): Promise<string | undefined> {
 
   return timestamp; // Return the updated timestamp
 }
+
+export async function deleteFlashcard(id: string): Promise<string | undefined> {
+  const supabase = await createClient();
+  const { data: user, error: userError } = await supabase.auth.getUser();
+  
+  if (userError || !user?.user) return undefined;
+
+  const { error } = await supabase
+    .from("flashcard")
+    .delete()
+    .eq("id", id);
+
+  if (error) return error.message;
+
+  return undefined;
+}

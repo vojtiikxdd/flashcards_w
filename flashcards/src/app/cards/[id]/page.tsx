@@ -17,5 +17,5 @@ export default async function CardsWrapper({
         redirect("/login");
     }
 
-    return <Cards cards={flashcards} />
+    return <Cards cards={flashcards} id={id} />
 }

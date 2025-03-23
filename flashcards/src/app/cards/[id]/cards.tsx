@@ -11,35 +11,37 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { SelectTraining, SelectTrainingHorizontal } from "@/components/cardsPreview/selectTraining";
+import { deleteFlashcard } from "@/utils/supabase/actions";
 
-export default function Cards({ cards }: {
+export default function Cards({ cards, id }: { 
     cards: {
         user_id: string;
         f_name: string;
+        
         description: string;
         list: {
             question: string;
             answer: string;
         }[]
-    }
+    }, 
+    id: string
 }) {
     const answers = cards.list.map((item) => item.answer);
     const questions = cards.list.map((item) => item.question);
     const numbers = questions.map((_, index) => index + 1).slice(0, -1);
 
-    // Stav bude objekt, kde kľúč je index karty a hodnota je či je otočená
+    // key - card index, value - if it's flipped
     const [flipStates, setFlipStates] = useState<{ [key: number]: boolean }>({});
 
-    // Pre ukladanie času na zistenie, či bolo kliknuté alebo podržané
+    // Timer for long press detection
     const pressTimer = useRef<any>(null);
 
-    // Funkcia na otočenie karty pri kliknutí
     const handleFlip = (index: number) => {
         setFlipStates((prev) => ({ ...prev, [index]: !prev[index] }));
     };
 
-    // Funkcia na resetovanie všetkých flipov pri zmene karuselu
     const handleCarouselMove = () => {
+        // Reset flip states when the carousel moves
         setFlipStates({});
     };
 
@@ -76,12 +78,20 @@ export default function Cards({ cards }: {
                         </div>
                         <div className="flex flex-row w-auto justify-end items-center gap-4 mr-2">
                             <Trash2
+                                className="cursor-pointer"
                                 style={{ color: "white", transition: "color 0.2s" }}
                                 onMouseEnter={(e) => e.currentTarget.style.color = "#f60a09"}
                                 onMouseLeave={(e) => e.currentTarget.style.color = "white"}
                                 size={30}
+                                onClick={() => deleteFlashcard(id)}
                             />
-                            <FilePenLine color="white" size={30} />
+                            <FilePenLine
+                                className="cursor-pointer"
+                                style={{ color: "white", transition: "color 0.2s" }}
+                                onMouseEnter={(e) => e.currentTarget.style.color = "#7cafad"}
+                                onMouseLeave={(e) => e.currentTarget.style.color = "white"}
+                                size={30}
+                            />
                         </div>
                     </div>
                     <Carousel
@@ -102,14 +112,14 @@ export default function Cards({ cards }: {
                                         flipDirection="vertical"
                                         containerClassName="items-center justify-center"
                                     >
-                                        {/* Predná strana */}
+                                        {/* Front side */}
                                         <p className={`text-lg flex text-white flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
                                             onClick={() => handleFlip(index)}
                                         >
                                             {questions[index]}
                                         </p>
 
-                                        {/* Zadná strana */}
+                                        {/* Rear side */}
                                         <p className={`text-lg text-white flex flex-wrap justify-center items-center align-middle w-[720px] max-w-[720px] h-full whitespace-normal break-all ${questions[index]?.includes(" ") ? "break-words" : "break-all"} px-12 py-8 cursor-pointer`}
                                             onClick={() => handleFlip(index)}
                                             onMouseDown={() => handleLongPressStart(index)}
@@ -120,8 +130,6 @@ export default function Cards({ cards }: {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-
-                        {/* Obalenie tlačidiel do divu, aby fungovali správne */}
                         <div onClick={handleCarouselMove}>
                             <CarouselPrevious className="-left-12" />
                             <CarouselNext />
