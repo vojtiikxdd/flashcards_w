@@ -23,18 +23,24 @@ export const metadata: Metadata = {
     description: "Start learning and get better!",
 };
 
+
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
     return (
         <html lang="en">
             <body className={`${geistMono.className} min-h-screen flex flex-col antialiased relative h-full w-full bg-[#121212] shadow[0_0px_100px_rgba(255,255,255,0.5)]`}>
                 {/*<div className="pointer-events-none absolute inset-0 bg-[#25153d] bg-[size:20px_20px] opacity-50 blur-[100px]"></div>*/}
-                <nav className={` ${poppins.className} p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-gradient-to-b from-[#131313] to-[#181818] font-bold items-center`}>
+                <header className={`${poppins.className} p-5 flex flex-row justify-between border-b-2 border-dashed border-white bg-gradient-to-b from-[#131313] to-[#181818] font-bold items-center`}>
                     <Link href={"/"} className="flex gap-x-2 cursor-pointer w-fit h-10 text-2xl focus:outline-none rounded-sm ease-in-out duration-200">
-                        <Image src="/newLogo-remade.png" alt="idk" width={70} height={50} />
+                        <Image
+                            src="/newLogo-remade.png"
+                            alt="idk"
+                            width={70}
+                            height={50}
+                        />
                         <h1 className="font-[Poppins] text-4xl text-white">FlashCards</h1>
                     </Link>
-                    {/*<div className="flex flex-row justify-between w-[60%]">
-                         <form className="flex flex-row bg-[#0c0c0c81] rounded-2xl border-solid border-white border-2 items-center max-w-96">
+                    {/* <form className="flex flex-row bg-[#0c0c0c81] rounded-2xl border-solid border-white border-2 items-center max-w-96">
                             <label htmlFor="search">
                                 <div className="flex flex-row gap-x-2 cursor-pointer">
                                     <div className="px-2 flex items-center cursor-pointer">
@@ -44,20 +50,28 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                                 </div>
                             </label>
                         </form> */}
-                        <ul className="flex flex-row gap-x-2 justify-between items-center">
-                            <li>
-                                <div className="p-2 cursor-pointer hover:border border-white border-dashed bg-[#272727] hover:bg-[#323232] rounded-xl ease-in-out duration-200">
-                                    <Search size={35} className="border-none border-transparent" color="white" />
-                                </div>
-                            </li>
-                            <li>
-                                <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
-                                    <User size={40} color="white" />
-                                </Link>
-                            </li>
-                        </ul>
-                    {/* </div> */}
-                </nav>
+                    <ul className="flex flex-row gap-x-2 justify-between items-center">
+                        <li>
+                            <div className="p-2 cursor-pointer border border-white border-dashed bg-transparent hover:bg-[#222222] rounded-xl ease-in-out duration-200"
+                                // onClick={() => {handleSearch()}}
+                            >
+                                <Search
+                                    size={35}
+                                    className="border-none border-transparent"
+                                    color="white"
+                                />
+                            </div>
+                        </li>
+                        <li>
+                            <Link href="/profile" className="cursor-pointer ml-auto flex justify-center items-center">
+                                <User
+                                    size={40}
+                                    color="white"
+                                />
+                            </Link>
+                        </li>
+                    </ul>
+                </header>
 
                 <div className="flex-1">
                     {children}

@@ -48,8 +48,8 @@ export function FlashcardBox() {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious className="-left-10" />
-            <CarouselNext className="-right-1" />
+            {isFull && <CarouselPrevious className="-left-10" />}
+            {isFull && <CarouselNext className="-right-1" />}
         </Carousel>
     )
 }
